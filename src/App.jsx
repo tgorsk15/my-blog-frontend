@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 
 import { Root } from './Pages/Root/Root'
 import { Profile } from './Pages/Profile/Profile'
@@ -24,15 +24,19 @@ function App() {
       errorElement: <Error />,
       children: [
         {
+          index: true, 
+          element: <Navigate to="/profile" replace />, 
+        },
+        {
           path: "profile",
           element: <Profile />,
           errorElement: <Error />,
-          
+
           children: [
             {
-              // path: "login",
+              path: "login",
               element: <Login />,
-              index: true
+
             },
             {
               path: "signup",

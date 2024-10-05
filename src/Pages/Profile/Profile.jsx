@@ -1,9 +1,20 @@
 import { Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 export const Profile = () => {
+
+
     return (
         <div>
-            hi profile
+            <h1>Welcome to Blogger!</h1>
+            <div>
+                <h4>
+                    <Link to='/login'>Sign in </Link> 
+                    or 
+                    <Link to="/signup" >Sign Up </Link> to continue
+                </h4>
+
+            </div>
             <Outlet />
         </div>
     )

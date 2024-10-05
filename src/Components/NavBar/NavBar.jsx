@@ -5,12 +5,12 @@ export const NavBar = () => {
         <div>
             hi NavBar
             <ul>
-                <li>
+                {/* <li>
                     <Link to="/">Home</Link>
                 </li>
                 <li>
                     <Link to="/profile">Profile</Link>
-                </li>
+                </li> */}
                 {/* Add other navigation links as needed */}
             </ul>
         </div>
