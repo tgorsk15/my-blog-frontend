@@ -15,6 +15,8 @@ import { CreateBlog } from './Pages/CreateBlog/CreateBlog'
 
 function App() {
   // const [count, setCount] = useState(0)
+  // const [token, setToken] = useSate('')
+
   const routes = [
     {
       path: "/",
@@ -25,11 +27,12 @@ function App() {
           path: "profile",
           element: <Profile />,
           errorElement: <Error />,
+          
           children: [
             {
-              path: "login",
+              // path: "login",
               element: <Login />,
-
+              index: true
             },
             {
               path: "signup",
