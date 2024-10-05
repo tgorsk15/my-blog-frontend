@@ -3,6 +3,14 @@ import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { Root } from './Pages/Root/Root'
+import { Profile } from './Pages/Profile/Profile'
+import { Login } from './Pages/Login/Login'
+import { SignUp } from './Pages/Signup/Signup'
+import { Error } from './Pages/ErrorPage/Error'
+import { Home } from './Pages/Home/Home'
+import { BlogView } from './Pages/Blog/BlogView'
+import { BlogDash } from './Pages/BlogDash/BlogDash'
+import { CreateBlog } from './Pages/CreateBlog/CreateBlog'
 
 
 function App() {
@@ -14,7 +22,7 @@ function App() {
       errorElement: <Error />,
       children: [
         {
-          path: "/",
+          path: "profile",
           element: <Profile />,
           errorElement: <Error />,
           children: [
@@ -25,20 +33,43 @@ function App() {
             },
             {
               path: "signup",
-              element: <Signup />
+              element: <SignUp />
             }
           ]
         },
+        {
+          path: "home",
+          element: <Home />,
+          children: [
+            {
+              path: "viewBlog",
+              element: <BlogView />,
+
+            }
+          ]
+        },
+        {
+          path: "blogDash",
+          element: <BlogDash />,
+          children: [
+            {
+              path: "createBlog",
+              element: <CreateBlog />
+            }
+          ]
+        }
       ]
     }
     
   ]
 
-  // start building the route sytem out, AFTER creating the shells of
-  // the needed components... so thta thye can be linked/referenced to here
+  const router = createBrowserRouter(routes)
+
 
   return (
-  <></>
+  <>
+    <RouterProvider router={router} />
+  </>
   )
 }
 

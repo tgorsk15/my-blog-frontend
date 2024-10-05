@@ -7,8 +7,11 @@ export const Root = () => {
             <nav>
                 <NavBar />
             </nav>
-
-            <Outlet />
+            <main>
+                hi Root
+                <Outlet />
+            </main>
+            
         </div>
     )
 }

@@ -1,9 +1,9 @@
 
 
-export const Root = () => {
+export const NavBar = () => {
     return (
         <div>
-            hi 
+            hi NavBar
         </div>
     )
 }
