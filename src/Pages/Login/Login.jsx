@@ -1,8 +1,11 @@
 import { useOutletContext } from "react-router-dom"
 import { getEnvVariable } from "../../utils/apiSetter"
+import { useState } from "react"
 
 export const Login = () => {
     const { setToken } = useOutletContext
+
+    const [loginError, setLoginError] = useState('')
 
     async function handleLogIn(e) {
         e.preventDefault()
@@ -26,12 +29,14 @@ export const Login = () => {
             console.log(apiUrl)
             const response = await fetch(`${apiUrl}/user/login`, options)
             const data = await response.json()
-            
+            console.log(data)
 
             if (!response.ok) {
-                throw new Error('Request failed');
+                console.log('not ok')
+                // throw new Error('Request failed');
+                setLoginError(data.msg)
             }
-            console.log(data)
+            
 
 
         } catch(error) {
@@ -45,6 +50,14 @@ export const Login = () => {
 
     return (
         <div>
+            {loginError !== '' && (
+                <div>
+                    <h3>
+                        {loginError}
+                    </h3>
+                </div>
+            )}
+
            <form onSubmit={handleLogIn}>
                 <label htmlFor="username">Username:</label>
                 <input 
