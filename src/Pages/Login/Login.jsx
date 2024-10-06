@@ -22,21 +22,21 @@ export const Login = () => {
         }
 
         try {
-            const result = getEnvVariable()
-            console.log(result)
-            // const response = await fetch("api url placeholder", options)
+            const apiUrl = getEnvVariable()
+            console.log(apiUrl)
+            const response = await fetch(`${apiUrl}/user/login`, options)
+            const data = await response.json()
+            
 
-            // if (!response.ok) {
-            //     throw new Error('Request failed');
-            // }
+            if (!response.ok) {
+                throw new Error('Request failed');
+            }
+            console.log(data)
 
 
         } catch(error) {
             console.log(error)
         }
-
-            // TMW 10/6: Finish building this function and figure out how to
-            // incorporate localStorage and send a token to the backend
 
             // need to somehow check when token runs out and then remove
             // the token info from localStorage
