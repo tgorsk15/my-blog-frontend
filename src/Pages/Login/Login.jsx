@@ -1,9 +1,10 @@
 import { useOutletContext } from "react-router-dom"
+import { getEnvVariable } from "../../utils/apiSetter"
 
 export const Login = () => {
     const { setToken } = useOutletContext
 
-    function handleLogIn(e) {
+    async function handleLogIn(e) {
         e.preventDefault()
 
         const formData = new FormData(e.target);
@@ -13,8 +14,33 @@ export const Login = () => {
 
         const options = {
             method: "POST",
-            headers: {"Content-Type": "application/json"}
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                username,
+                password
+            })
         }
+
+        try {
+            const result = getEnvVariable()
+            console.log(result)
+            // const response = await fetch("api url placeholder", options)
+
+            // if (!response.ok) {
+            //     throw new Error('Request failed');
+            // }
+
+
+        } catch(error) {
+            console.log(error)
+        }
+
+            // TMW 10/6: Finish building this function and figure out how to
+            // incorporate localStorage and send a token to the backend
+
+            // need to somehow check when token runs out and then remove
+            // the token info from localStorage
+
     }
 
     return (
