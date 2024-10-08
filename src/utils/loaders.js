@@ -18,11 +18,13 @@ export const getPublicPosts = async () => {
         const response = await fetch(`${apiUrl}/post/viewAllPublished`, options)
         const data = await response.json()
         console.log(data)
+        const posts = data.posts
+        console.log('posts in loader:', posts)
 
         if (!response.ok) {
             console.log('not ok')
         } else {
-            return data
+            return posts
         }
 
         

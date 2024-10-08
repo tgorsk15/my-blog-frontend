@@ -10,7 +10,7 @@ export const Home = () => {
     console.log('here is postlist:', postsList)
     console.log(token)
 
-    // call upon useLoaderData to load published posts in
+    console.log('here isomponent:', BlogItem)
 
     return (
         <div>
@@ -18,9 +18,14 @@ export const Home = () => {
             <section className={homeStyles.postsSection}>
                 {postsList.length > 0 ? (
                     postsList.map((post) => {
-                        <BlogItem 
+                        {console.log('individual', post)}
+                        return (
+                            <BlogItem
+                            key ={post.id} 
                             post={post}
                         />
+                        )
+                        
                     })
 
                     
