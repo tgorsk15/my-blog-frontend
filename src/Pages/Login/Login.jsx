@@ -1,11 +1,13 @@
-import { useOutletContext } from "react-router-dom"
+import { useOutletContext, useNavigate } from "react-router-dom"
 import { getEnvVariable } from "../../utils/apiSetter"
 import { useState } from "react"
 
 export const Login = () => {
-    const { setToken } = useOutletContext
+    const { setToken } = useOutletContext()
+    console.log(setToken)
 
     const [loginError, setLoginError] = useState('')
+    const navigate = useNavigate()
 
     async function handleLogIn(e) {
         e.preventDefault()
@@ -35,9 +37,15 @@ export const Login = () => {
                 console.log('not ok')
                 // throw new Error('Request failed');
                 setLoginError(data.msg)
+            } else {
+                // save to localStorage:
+                localStorage.setItem('token', data.token)
+
+                setToken(data.token)
+                // navigate to home from here
+                navigate("/Home")
             }
             
-
 
         } catch(error) {
             console.log(error)
