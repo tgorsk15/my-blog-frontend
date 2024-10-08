@@ -12,6 +12,10 @@ import { BlogView } from './Pages/Blog/BlogView'
 import { BlogDash } from './Pages/BlogDash/BlogDash'
 import { CreateBlog } from './Pages/CreateBlog/CreateBlog'
 
+import { getPublicPosts } from './utils/loaders';
+
+// TMW 10/7:  just imported the above loader function... place this in the
+// "loader" parameter below for Hom. and then try running the DB query
 
 function App() {
   // const [token, setToken] = useSate('')
@@ -35,7 +39,6 @@ function App() {
             {
               path: "login",
               element: <Login />,
-
             },
             {
               path: "signup",
@@ -46,6 +49,7 @@ function App() {
         {
           path: "home",
           element: <Home />,
+          // loader: 
           children: [
             {
               path: "viewBlog",

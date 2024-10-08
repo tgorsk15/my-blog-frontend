@@ -14,6 +14,7 @@ export const Root = () => {
                 hi Root
                 <Outlet context={{
                     setToken,
+                    token
                 }}/>
             </main>
             

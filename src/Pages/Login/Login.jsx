@@ -38,6 +38,8 @@ export const Login = () => {
                 // throw new Error('Request failed');
                 setLoginError(data.msg)
             } else {
+                // remove old token:
+                localStorage.removeItem('token', null)
                 // save to localStorage:
                 localStorage.setItem('token', data.token)
 
