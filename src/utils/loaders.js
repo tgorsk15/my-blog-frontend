@@ -5,10 +5,10 @@ export const getPublicPosts = async () => {
     console.log(token)
     const options = {
         method: "GET",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-            token
-        })
+        headers: {"Content-Type": "application/json", "Authorization": token},
+        // body: JSON.stringify({
+        //     token
+        // })
     }
 
     try {

@@ -49,7 +49,7 @@ function App() {
         {
           path: "home",
           element: <Home />,
-          // loader: 
+          loader: getPublicPosts,
           children: [
             {
               path: "viewBlog",
