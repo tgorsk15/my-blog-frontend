@@ -12,10 +12,8 @@ import { BlogView } from './Pages/Blog/BlogView'
 import { BlogDash } from './Pages/BlogDash/BlogDash'
 import { CreateBlog } from './Pages/CreateBlog/CreateBlog'
 
-import { getPublicPosts } from './utils/loaders';
+import { getPublicPosts, getSinglePost } from './utils/loaders';
 
-// TMW 10/7:  just imported the above loader function... place this in the
-// "loader" parameter below for Hom. and then try running the DB query
 
 function App() {
   // const [token, setToken] = useSate('')
@@ -52,9 +50,9 @@ function App() {
           loader: getPublicPosts,
           children: [
             {
-              path: "viewBlog",
+              path: "viewBlog/:postId",
               element: <BlogView />,
-
+              loader: getSinglePost,
             }
           ]
         },

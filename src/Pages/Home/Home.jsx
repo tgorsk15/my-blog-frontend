@@ -10,7 +10,6 @@ export const Home = () => {
     console.log('here is postlist:', postsList)
     console.log(token)
 
-    console.log('here isomponent:', BlogItem)
 
     return (
         <div>
@@ -18,7 +17,6 @@ export const Home = () => {
             <section className={homeStyles.postsSection}>
                 {postsList.length > 0 ? (
                     postsList.map((post) => {
-                        {console.log('individual', post)}
                         return (
                             <BlogItem
                             key ={post.id} 
