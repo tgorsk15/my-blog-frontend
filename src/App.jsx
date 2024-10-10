@@ -12,7 +12,8 @@ import { BlogView } from './Pages/Blog/BlogView'
 import { BlogDash } from './Pages/BlogDash/BlogDash'
 import { CreateBlog } from './Pages/CreateBlog/CreateBlog'
 
-import { getPublicPosts, getSinglePost } from './utils/loaders';
+import { getPublicPosts } from './utils/loaders';
+import { getSinglePost } from './utils/loaders';
 
 
 function App() {
@@ -48,13 +49,14 @@ function App() {
           path: "home",
           element: <Home />,
           loader: getPublicPosts,
-          children: [
-            {
-              path: "viewBlog/:postId",
-              element: <BlogView />,
-              loader: getSinglePost,
-            }
-          ]
+          // children: [
+            
+          // ]
+        },
+        {
+          path: "viewBlog/:postId",
+          element: <BlogView />,
+          loader: getSinglePost,
         },
         {
           path: "blogDash",

@@ -23,6 +23,7 @@ export const getPublicPosts = async () => {
 
         if (!response.ok) {
             console.log('not ok')
+            return null
         } else {
             return posts
         }
@@ -55,10 +56,11 @@ export const getSinglePost = async ({ params }) => {
 
         const response = await fetch(`${apiUrl}/post/view/${postId}`, options)
         const data = await response.json()
-        console.log(data)
+        console.log('post in loader function', data)
 
         if (!response.ok) {
             console.log('not ok')
+            return null
         } else {
             return data
         }
