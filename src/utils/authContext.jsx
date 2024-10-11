@@ -6,10 +6,6 @@ import PropTypes from "prop-types"
 export const AuthContext = createContext()
 
 export const AuthContextProvider = ({ children }) => {
-    // TMW 10/11:  Continue to work through how to persist a 
-    // logged-in user's info after a page refresh... possibly touch the topic of
-    // how to make token expire after some time
-    // ...seems like localStorage is very popular for this
     const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('user')));
     const [token, setToken] = useState(localStorage.getItem('token'));
 

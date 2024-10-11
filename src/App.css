@@ -1,9 +1,29 @@
 #root {
-  max-width: 1280px;
+  min-width: 100%;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 2rem;
+
   text-align: center;
 }
 
+
+/* Nav Bar */
+.navbar-section {
+  display: flex;
+  align-items: center;
+}
+
+.links-container {
+  display: flex;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links > li{
+  list-style-type: none;
+}
 
 

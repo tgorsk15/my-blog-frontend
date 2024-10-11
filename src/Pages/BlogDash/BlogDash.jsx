@@ -3,7 +3,7 @@
 export const BlogDash = () => {
     return (
         <div>
-            hi blog dash
+            Welcome to Dash, Author
         </div>
     )
 }
