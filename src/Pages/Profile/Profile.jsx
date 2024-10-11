@@ -2,6 +2,7 @@ import { Outlet, Link, useOutletContext } from 'react-router-dom';
 
 export const Profile = () => {
     const { setToken } = useOutletContext()
+    
 
     return (
         <div>

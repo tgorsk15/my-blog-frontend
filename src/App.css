@@ -10,11 +10,13 @@
 /* Nav Bar */
 .navbar-section {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
 .links-container {
   display: flex;
+  margin-right: 20px;
 }
 
 .nav-links {
@@ -22,7 +24,7 @@
   gap: 25px;
 }
 
-.nav-links > li{
+.nav-links > li {
   list-style-type: none;
 }
 
