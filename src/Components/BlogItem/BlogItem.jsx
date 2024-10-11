@@ -9,7 +9,7 @@ export const BlogItem = ({ post }) => {
 
     return (
         <div className={homesStyles.blogItem}>
-            <Link to={`/home/viewBlog/${post.id}`}>
+            <Link to={`/viewBlog/${post.id}`}>
             <h2>
                 {post.title}
             </h2>
