@@ -1,13 +1,13 @@
 import { useOutletContext, useNavigate } from "react-router-dom"
 import { getEnvVariable } from "../../utils/apiSetter"
 import { useState } from "react"
+import { useAuth } from "../../utils/useAuth"
 
 export const Login = () => {
-    const { setToken } = useOutletContext()
-    console.log(setToken)
-
     const [loginError, setLoginError] = useState('')
     const navigate = useNavigate()
+
+    const { login } = useAuth()
 
     async function handleLogIn(e) {
         e.preventDefault()
@@ -31,19 +31,17 @@ export const Login = () => {
             console.log(apiUrl)
             const response = await fetch(`${apiUrl}/user/login`, options)
             const data = await response.json()
-            console.log(data)
+            console.log('overall data', data)
+            console.log('user data', data.user)
 
             if (!response.ok) {
                 console.log('not ok')
                 // throw new Error('Request failed');
                 setLoginError(data.msg)
             } else {
-                // remove old token:
-                localStorage.removeItem('token', null)
-                // save to localStorage:
-                localStorage.setItem('token', data.token)
+                // trigger login with context provider
+                login(data)
 
-                setToken(data.token)
                 // navigate to home from here
                 navigate("/Home")
             }

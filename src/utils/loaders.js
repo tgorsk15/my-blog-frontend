@@ -6,20 +6,16 @@ export const getPublicPosts = async () => {
     const options = {
         method: "GET",
         headers: {"Content-Type": "application/json", "Authorization": token},
-        // body: JSON.stringify({
-        //     token
-        // })
     }
 
     try {
         const apiUrl = getEnvVariable()
-        console.log(apiUrl)
+        // console.log(apiUrl)
 
         const response = await fetch(`${apiUrl}/post/viewAllPublished`, options)
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
         const posts = data.posts
-        console.log('posts in loader:', posts)
 
         if (!response.ok) {
             console.log('not ok')
