@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../utils/useAuth'
 
 export const NavBar = () => {
+    const { userData } = useAuth();
+    console.log('user in nav bar', userData)
+
     return (
         <div>
             hi NavBar
