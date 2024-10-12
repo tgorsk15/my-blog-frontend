@@ -1,0 +1,17 @@
+.blogDashPage {
+    background-color: lightgrey;
+    display: flex;
+    gap: 30px;
+}
+
+.postsSection {
+    width: 50vw;
+    height: 20px;
+    background-color: lightblue;
+}
+
+.addPostSection {
+    width: 30vw;
+    height: 20px;
+    background-color: rgb(185, 222, 185);
+}
