@@ -13,14 +13,17 @@ export const BlogDash = () => {
     const [activeList, setList] = useState(publicPosts)
 
     function handleSwitch(e) {
-
+        const value = e.target.innerText
+        if (value === "All") {
+            setList(allPosts)
+        } else if (value === "Public") {
+            setList(publicPosts)
+        }
     }
 
     // maybe set up state variable to determine which set of posts are
     // "active", which gets switched on button click
 
-    // create a PostList Component and use it twice below, one for public posts,
-    // one for all posts
     return (
         <div className={dashStyles.blogDashPage}>
             <section className={dashStyles.postsSection}>
@@ -36,7 +39,7 @@ export const BlogDash = () => {
                 {/* use conditional with activeList here */}
                 <div className={dashStyles.listContainer}>
                     <PostList 
-                    
+                        postList = {activeList}
                     />
                 </div>
             </section>

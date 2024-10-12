@@ -11,6 +11,7 @@ import { Home } from './Pages/Home/Home'
 import { BlogView } from './Pages/Blog/BlogView'
 import { BlogDash } from './Pages/BlogDash/BlogDash'
 import { CreateBlog } from './Pages/CreateBlog/CreateBlog'
+import { EditBlog } from './Pages/EditBlog/EditBlog';
 
 import { getPublicPosts, getSinglePost, getAllPosts } from './utils/loaders';
 
@@ -49,7 +50,6 @@ function App() {
           path: "home",
           id: "homeData",
           element: <Home />,
-          // loader: getPublicPosts,
         },
         {
           path: "viewBlog/:postId",
@@ -64,6 +64,10 @@ function App() {
             {
               path: "createBlog",
               element: <CreateBlog />
+            },
+            {
+              path: "editBlog",
+              element: <EditBlog />
             }
           ]
         }
