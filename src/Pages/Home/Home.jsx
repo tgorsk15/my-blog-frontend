@@ -1,4 +1,4 @@
-import { useOutletContext, useNavigate, useLoaderData } from "react-router-dom"
+import { useNavigate, useLoaderData, useRouteLoaderData } from "react-router-dom"
 import { useState } from "react"
 import { useAuth } from "../../utils/useAuth"
 
@@ -6,7 +6,7 @@ import { BlogItem } from "../../Components/BlogItem/BlogItem"
 import homeStyles from "./home.module.css"
 
 export const Home = () => {
-    const postsList = useLoaderData()
+    const postsList = useRouteLoaderData("root")
     // console.log('here is postlist:', postsList)
 
     const { userData, token } = useAuth()

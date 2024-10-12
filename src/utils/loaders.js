@@ -1,5 +1,9 @@
 import { getEnvVariable } from "./apiSetter"
 
+export const getAllPosts = async () => {
+    return ('here are all posts')
+}
+
 export const getPublicPosts = async () => {
     const token = localStorage.getItem('token')
     console.log('token', token)
@@ -72,3 +76,4 @@ export const getSinglePost = async ({ params }) => {
         console.log(err)
     }
 }
+

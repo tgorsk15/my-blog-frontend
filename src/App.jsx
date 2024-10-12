@@ -12,18 +12,18 @@ import { BlogView } from './Pages/Blog/BlogView'
 import { BlogDash } from './Pages/BlogDash/BlogDash'
 import { CreateBlog } from './Pages/CreateBlog/CreateBlog'
 
-import { getPublicPosts } from './utils/loaders';
-import { getSinglePost } from './utils/loaders';
+import { getPublicPosts, getSinglePost, getAllPosts } from './utils/loaders';
 
 
 function App() {
-  // const [token, setToken] = useSate('')
 
   const routes = [
     {
       path: "/",
       element: <Root />,
+      id: "root",
       errorElement: <Error />,
+      loader: getPublicPosts,
       children: [
         {
           index: true, 
@@ -47,11 +47,9 @@ function App() {
         },
         {
           path: "home",
+          id: "homeData",
           element: <Home />,
-          loader: getPublicPosts,
-          // children: [
-            
-          // ]
+          // loader: getPublicPosts,
         },
         {
           path: "viewBlog/:postId",
@@ -61,6 +59,7 @@ function App() {
         {
           path: "blogDash",
           element: <BlogDash />,
+          loader: getAllPosts,
           children: [
             {
               path: "createBlog",
