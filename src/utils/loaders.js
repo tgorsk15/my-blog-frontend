@@ -1,4 +1,5 @@
 import { getEnvVariable } from "./apiSetter"
+import { formatDate } from "./formatDate";
 
 export const getAllPosts = async () => {
     const token = localStorage.getItem('token')
@@ -17,7 +18,13 @@ export const getAllPosts = async () => {
             console.log('not ok')
             return null
         } else {
-            return data.posts
+            const posts = data.posts
+            posts.map((post) => {
+                const formattedDate = formatDate(post.createdAt)
+                post.createdAt = formattedDate
+                console.log(post.createdAt)
+            })
+            return posts
         }
 
     } catch(err) {
@@ -51,6 +58,11 @@ export const getPublicPosts = async () => {
             console.log('not ok')
             return null
         } else {
+            posts.map((post) => {
+                const formattedDate = formatDate(post.createdAt)
+                post.createdAt = formattedDate
+                console.log(post.createdAt)
+            })
             return posts
         }
 
