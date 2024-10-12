@@ -65,11 +65,11 @@ function App() {
               path: "createBlog",
               element: <CreateBlog />
             },
-            {
-              path: "editBlog",
-              element: <EditBlog />
-            }
           ]
+        },
+        {
+          path: "editBlog/:postId",
+          element: <EditBlog />
         }
       ]
     }

@@ -14,3 +14,26 @@
     height: 20px;
     background-color: rgb(185, 222, 185);
 }
+
+.listContainer {
+    margin: 0px 20px;
+    overflow-y: scroll;
+    max-height: 60vh;
+}
+
+
+
+/* PostList styling */
+.postInfo {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.postActions {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    margin-left: 30px;
+}
