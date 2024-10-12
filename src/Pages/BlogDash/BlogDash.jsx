@@ -5,10 +5,10 @@ import { PostList } from "../../Components/PostList/PostList"
 import dashStyles from "./blogDash.module.css"
 
 export const BlogDash = () => {
-    const message = useLoaderData()
-    console.log(message)
+    const allPosts = useLoaderData()
+    console.log('all posts loaded:', allPosts)
     const publicPosts = useRouteLoaderData("root")
-    console.log('prev loaded data', publicPosts)
+    console.log('prev loaded public', publicPosts)
 
     const [activeList, setList] = useState(publicPosts)
 

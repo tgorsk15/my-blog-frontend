@@ -1,7 +1,28 @@
 import { getEnvVariable } from "./apiSetter"
 
 export const getAllPosts = async () => {
-    return ('here are all posts')
+    const token = localStorage.getItem('token')
+    console.log('token', token)
+    const options = {
+        method: "GET",
+        headers: {"Content-Type": "application/json", "Authorization": token},
+    }
+
+    try {
+        const apiUrl = getEnvVariable()
+        const response = await fetch(`${apiUrl}/post/getAll`, options)
+        const data = await response.json()
+        
+        if (!response.ok) {
+            console.log('not ok')
+            return null
+        } else {
+            return data.posts
+        }
+
+    } catch(err) {
+        console.log(err)
+    }
 }
 
 export const getPublicPosts = async () => {
@@ -20,7 +41,6 @@ export const getPublicPosts = async () => {
 
     try {
         const apiUrl = getEnvVariable()
-        // console.log(apiUrl)
 
         const response = await fetch(`${apiUrl}/post/viewAllPublished`, options)
         const data = await response.json()
@@ -42,7 +62,6 @@ export const getPublicPosts = async () => {
 }
 
 export const getSinglePost = async ({ params }) => {
-    console.log('gabgoogabgoogabgoo')
     const token = localStorage.getItem('token')
     const { postId } = params
     console.log('chosenId:', postId)
