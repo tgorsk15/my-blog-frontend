@@ -19,9 +19,9 @@ export const Home = () => {
                     postsList.map((post) => {
                         return (
                             <BlogItem
-                            key ={post.id} 
-                            post={post}
-                        />
+                                key ={post.id} 
+                                post={post}
+                            />
                         )
                         
                     })

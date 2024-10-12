@@ -2,7 +2,13 @@ import { getEnvVariable } from "./apiSetter"
 
 export const getPublicPosts = async () => {
     const token = localStorage.getItem('token')
-    console.log(token)
+    console.log('token', token)
+
+    // prevent user from accessing home and loading data if not logged in:
+    // if (token === null) {
+
+    // }
+
     const options = {
         method: "GET",
         headers: {"Content-Type": "application/json", "Authorization": token},
@@ -58,7 +64,7 @@ export const getSinglePost = async ({ params }) => {
             console.log('not ok')
             return null
         } else {
-            return data
+            return data.post
         }
         
 

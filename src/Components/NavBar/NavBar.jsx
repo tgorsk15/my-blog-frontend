@@ -19,9 +19,11 @@ function handleLogout() {
             )}
             <div className='links-container'>
                 <ul className='nav-links'>
-                    <li>
-                        <Link to="/home">Home</Link>
-                    </li>
+                    {userData && (
+                        <li>
+                            <Link to="/home">Home</Link>
+                        </li>
+                    )}
                     {userData && userData.isAuthor && (
                         <li>
                             <Link to="/blogDash">Author Hub</Link>

@@ -9,7 +9,6 @@ export const Root = () => {
                 <NavBar />
             </nav>
             <main>
-                hi Root
                 <Outlet context={{
 
                 }}/>
