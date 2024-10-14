@@ -61,12 +61,10 @@ function App() {
           path: "blogDash",
           element: <BlogDash />,
           loader: getAllPosts,
-          children: [
-            {
-              path: "createBlog",
-              element: <CreateBlog />
-            },
-          ]
+        },
+        {
+          path: "createBlog",
+          element: <CreateBlog />
         },
         {
           path: "editBlog/:postId",

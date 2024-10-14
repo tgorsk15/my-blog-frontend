@@ -52,6 +52,11 @@
     margin-top: 50%;
     border: 3px dashed black;
     border-radius: 20px;
+    transition: all ease-in-out 250ms;
+}
+
+.createNewContainer:hover {
+    opacity: 0.6;
 }
 
 .createNewBox {
