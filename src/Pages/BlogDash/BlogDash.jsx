@@ -1,5 +1,5 @@
-import { useLoaderData, useRouteLoaderData, useRevalidator } from "react-router-dom"
-import { useEffect, useState, useRef } from "react"
+import { useLoaderData, useRouteLoaderData } from "react-router-dom"
+import { useState } from "react"
 import { getAllPosts } from "../../utils/loaders"
 import { PostList } from "../../Components/PostList/PostList"
 
@@ -10,26 +10,11 @@ export const BlogDash = () => {
     const initialPublicPosts = useRouteLoaderData("root")
     console.log('all posts loaded:', initialAllPosts)
     console.log('prev loaded public', initialPublicPosts)
-    // const revalidator = useRevalidator();
 
     const [allPosts, setAllPosts] = useState(initialAllPosts)
     const [publicPosts, setPublicPosts] = useState(initialPublicPosts)
     const [activeList, setActive] = useState(publicPosts)
     const [activeType, setType] = useState("public")
-    // const [activeType, setActiveType] = useState("Public")
-
-    // const allPostsRef = useRef(allPosts)
-    // const publicPostsRef = useRef(publicPosts)
-
-    // useEffect(() => {
-    //     allPostsRef.current = allPosts
-    //     publicPostsRef.current = publicPosts
-    // }, [allPosts, publicPosts])
-
-    // useEffect(() => {
-    //     // setActive(activeType === "All" ? allPostsRef.current : publicPostsRef.current)
-    //     setActive(activeType === "All" ? allPosts : publicPosts)
-    // }, [activeType])
 
     function handleSwitch(e) {
         // change state of what active list is being shown
@@ -41,12 +26,9 @@ export const BlogDash = () => {
             setActive(publicPosts)
             setType("public")
         }
-
-        // setActiveType(value)
     }
 
-    async function handleListChange(buttonText) {
-        
+    async function handleListChange() {
         // change state of allPosts here
         // take the new allPosts and filter, to create new public list
         // then, set state of publicposts to this new filtered list
@@ -61,19 +43,7 @@ export const BlogDash = () => {
             setActive(newList)
         }
 
-        
-        // revalidator.revalidate();
         console.log('does it get this far?')
-        // if (buttonText === 'Publish') {
-        //     console.log('button text in function:', buttonText)
-        //     console.log('newAllPosts list in function:', allPosts)
-        //     setActive(allPosts)
-        // } else {
-        //     console.log('button text in function:', buttonText)
-        //     console.log('new PublicPosts list in function:', publicPosts)
-        //     setActive(publicPosts)
-        // }
-        // setActiveType(buttonText === 'Publish' ? 'All' : 'Public')
 
     }
 
@@ -90,7 +60,6 @@ export const BlogDash = () => {
                         All
                     </button>
                 </div>
-                {/* use conditional with activeList here */}
                 <div className={dashStyles.listContainer}>
                     <PostList 
                         activeList = {activeList}

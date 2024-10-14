@@ -4,20 +4,7 @@ import { getEnvVariable } from "../../utils/apiSetter"
 
 import dashStyles from "../../Pages/BlogDash/blogDash.module.css"
 
-export const PostList = ({ activeList, setList, handleListChange }) => {
-
-    // function handleListChange(updatedPost) {
-    //     console.log('updated post', updatedPost)
-    //     const newBoolean = updatedPost.published
-
-    //     const newList = [...postList];
-    //     newList.forEach((post) => {
-    //         if (post.id === updatedPost.id) {
-    //             post.published = newBoolean
-    //         }
-    //     })
-    //     setList(newList)
-    // }
+export const PostList = ({ activeList, handleListChange }) => {
 
 
     async function handlePublish(e) {
@@ -49,7 +36,7 @@ export const PostList = ({ activeList, setList, handleListChange }) => {
                 console.log('not ok')
                 return null
             } else {
-                const data = await response.json()
+                // const data = await response.json()
                 handleListChange(savedButtonText)
                 return
             }
