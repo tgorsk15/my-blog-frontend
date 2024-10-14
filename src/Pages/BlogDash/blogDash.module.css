@@ -1,18 +1,22 @@
 .blogDashPage {
     background-color: lightgrey;
     display: flex;
+    justify-content: center;
     gap: 30px;
 }
 
 .postsSection {
-    width: 50vw;
+    width: 60vw;
     background-color: lightblue;
 }
 
 .addPostSection {
-    width: 30vw;
+    /* display: flex;
+    align-items: center; */
+    width: 20vw;
     height: 20px;
     background-color: rgb(185, 222, 185);
+    height: calc(100vh - 76px)
 }
 
 .listContainer {
@@ -37,3 +41,25 @@
     gap: 15px;
     margin-left: 30px;
 }
+
+
+/* addPostSection styling */
+.createNewContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: cornflowerblue; */
+    height: 50vh;
+    margin-top: 50%;
+    border: 3px dashed black;
+    border-radius: 20px;
+}
+
+.createNewBox {
+
+}
+
+.addSvg {
+    margin-left: 25px;
+}
+
