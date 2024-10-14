@@ -31,6 +31,8 @@ export const getAllPosts = async () => {
     }
 }
 
+
+// left off here... prevents initial load on "/" path, need to figure out
 export const getPublicPosts = async () => {
     const token = localStorage.getItem('token')
     console.log('token', token)
@@ -38,6 +40,10 @@ export const getPublicPosts = async () => {
     const options = {
         method: "GET",
         headers: {"Content-Type": "application/json", "Authorization": token},
+    }
+
+    if (token === null) {
+        return
     }
 
     try {

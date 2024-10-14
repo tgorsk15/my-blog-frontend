@@ -24,7 +24,7 @@ function App() {
       element: <Root />,
       id: "root",
       errorElement: <Error />,
-      loader: getPublicPosts,
+      // loader: getPublicPosts,
       children: [
         {
           index: true, 
@@ -50,6 +50,7 @@ function App() {
           path: "home",
           id: "homeData",
           element: <Home />,
+          loader: getPublicPosts
         },
         {
           path: "viewBlog/:postId",

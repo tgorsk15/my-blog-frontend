@@ -7,12 +7,15 @@ import dashStyles from "./blogDash.module.css"
 
 export const BlogDash = () => {
     const initialAllPosts = useLoaderData()
-    const initialPublicPosts = useRouteLoaderData("root")
+    // const initialPublicPosts = useRouteLoaderData("root")
     console.log('all posts loaded:', initialAllPosts)
-    console.log('prev loaded public', initialPublicPosts)
+    // console.log('prev loaded public', initialPublicPosts)
 
     const [allPosts, setAllPosts] = useState(initialAllPosts)
-    const [publicPosts, setPublicPosts] = useState(initialPublicPosts)
+    const [publicPosts, setPublicPosts] = useState(() => 
+        initialAllPosts.filter(post => post.published === true)
+    )
+    console.log('public posts loaded:', publicPosts)
     const [activeList, setActive] = useState(publicPosts)
     const [activeType, setType] = useState("public")
 

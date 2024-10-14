@@ -6,7 +6,7 @@ import { BlogItem } from "../../Components/BlogItem/BlogItem"
 import homeStyles from "./home.module.css"
 
 export const Home = () => {
-    const postsList = useRouteLoaderData("root")
+    const postsList = useLoaderData()
     // console.log('here is postlist:', postsList)
 
     const { userData, token } = useAuth()
