@@ -8,9 +8,8 @@ export const BlogView = () => {
     console.log('here is the loaded post', post)
     const formattedDate = formatDate(post.createdAt)
 
-    // left off here... nothing is showing on screen
-    console.log(post.title)
-    console.log(post.createdAt)
+    // idea: have a separate Comments Component that I can plug in at
+    // the end BlogView
     
 
     return (

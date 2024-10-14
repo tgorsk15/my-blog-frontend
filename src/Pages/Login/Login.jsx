@@ -1,4 +1,4 @@
-import { useOutletContext, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { getEnvVariable } from "../../utils/apiSetter"
 import { useState } from "react"
 import { useAuth } from "../../utils/useAuth"
@@ -15,7 +15,6 @@ export const Login = () => {
         const formData = new FormData(e.target);
         const username = formData.get('username')
         const password = formData.get('password')
-        console.log(username, password)
 
         const options = {
             method: "POST",
@@ -31,7 +30,6 @@ export const Login = () => {
             console.log(apiUrl)
             const response = await fetch(`${apiUrl}/user/login`, options)
             const data = await response.json()
-            console.log('overall data', data)
             console.log('user data', data.user)
 
             if (!response.ok) {

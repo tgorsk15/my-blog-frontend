@@ -20,8 +20,6 @@ export function formatDate(dateString) {
     
     // Replace the day number with the day number + ordinal suffix
     formattedDate = formattedDate.replace(/(\d+)/, `$1${suffix}`);
-
-    console.log('formatted date', formattedDate)
     
     return formattedDate;
 }

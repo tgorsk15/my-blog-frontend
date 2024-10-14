@@ -22,7 +22,6 @@ export const getAllPosts = async () => {
             posts.map((post) => {
                 const formattedDate = formatDate(post.createdAt)
                 post.createdAt = formattedDate
-                console.log(post.createdAt)
             })
             return posts
         }
@@ -35,11 +34,6 @@ export const getAllPosts = async () => {
 export const getPublicPosts = async () => {
     const token = localStorage.getItem('token')
     console.log('token', token)
-
-    // prevent user from accessing home and loading data if not logged in:
-    // if (token === null) {
-
-    // }
 
     const options = {
         method: "GET",
@@ -61,7 +55,6 @@ export const getPublicPosts = async () => {
             posts.map((post) => {
                 const formattedDate = formatDate(post.createdAt)
                 post.createdAt = formattedDate
-                console.log(post.createdAt)
             })
             return posts
         }
