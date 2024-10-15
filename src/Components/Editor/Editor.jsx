@@ -1,10 +1,15 @@
+import PropTypes from "prop-types"
 import { Editor } from '@tinymce/tinymce-react'
 
-export const PostEditor = () => {
+export const PostEditor = ({ contentRef }) => {
 
     return (
         <Editor 
             apiKey = {import.meta.env.VITE_TINY_API_KEY}
+            id='blogEditor'
+            onEditorChange={ (_, editor) => {
+                contentRef.current = editor
+            }}
             init={{
                 plugins:[
                     'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 
@@ -16,4 +21,8 @@ export const PostEditor = () => {
             
         />
     )
+}
+
+Editor.propTypes = {
+    contentRef: PropTypes.object
 }
