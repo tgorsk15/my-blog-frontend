@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { PostEditor } from "../../Components/Editor/Editor"
-import { Editor as TinyMCEEditor } from 'tinymce';
 
 import blogStyles from "../EditBlog/blogEditor.module.css"
 
