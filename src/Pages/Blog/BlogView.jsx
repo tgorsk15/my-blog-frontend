@@ -20,9 +20,9 @@ export const BlogView = () => {
                     <h3>{formattedDate}</h3>
                 </div>
                 <div className={viewStyles.contentSection}>
-                    <h4>
-                        {post.content}
-                    </h4>
+                    <div 
+                        dangerouslySetInnerHTML={{__html: post.content}}
+                    />
                 </div>
             </div>
         </section>

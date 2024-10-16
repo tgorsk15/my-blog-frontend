@@ -81,9 +81,6 @@ export const getSinglePost = async ({ params }) => {
     const options = {
         method: "GET",
         headers: {"Content-Type": "application/json", "Authorization": token},
-        // body: JSON.stringify({
-        //     token
-        // })
     }
 
 
