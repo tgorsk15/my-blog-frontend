@@ -1,4 +1,14 @@
+.blogViewSection {
+    display: flex;
+    justify-content: center;
+}
+
 .blogContainer {
     width: 50vw;
-    background-color: rgb(195, 193, 193);
+    background-color: rgb(246, 243, 243);
+    text-align: left;
+    border-radius: 20px;
+    padding: 20px;
+    /* box-shadow: 0px 0px 8px 0px rgb(143, 143, 143); */
+    box-shadow: 0px 0px 38px 0px rgb(208, 203, 203);
 }

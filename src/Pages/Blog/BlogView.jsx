@@ -14,7 +14,7 @@ export const BlogView = () => {
 
     return (
         <section className={viewStyles.blogViewSection}>
-            <div className={viewStyles.blogContianer}>
+            <div className={viewStyles.blogContainer} id="blogContainer">
                 <div className={viewStyles.titleSection}>
                     <h1>{post.title}</h1>
                     <h3>{formattedDate}</h3>
