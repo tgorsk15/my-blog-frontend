@@ -44,6 +44,7 @@ export const EditBlog = () => {
                     // TMW 10/18: continue setting this up and connecting to
                     // handleSubmitChange, where Refs will change to current value
                     // (follow along with GPT prompt if needed)
+                    
                 />
 
                 <label htmlFor="postContent">Post Body:</label>
