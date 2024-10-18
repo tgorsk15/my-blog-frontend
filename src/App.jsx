@@ -68,7 +68,8 @@ function App() {
         },
         {
           path: "editBlog/:postId",
-          element: <EditBlog />
+          element: <EditBlog />,
+          loader: getSinglePost
         }
       ]
     }
