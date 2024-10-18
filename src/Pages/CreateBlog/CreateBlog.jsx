@@ -27,10 +27,6 @@ export const CreateBlog = () => {
             })
         }
 
-        // left off here
-        // going to have to change format of backend function on
-        // how it handles the body data
-
         try {
             const apiUrl = getEnvVariable()
             const response = await fetch(`${apiUrl}/post/create`, options)
