@@ -7,6 +7,7 @@ export const PostEditor = ({ contentRef }) => {
     return (
         <Editor 
             apiKey = {import.meta.env.VITE_TINY_API_KEY}
+            
             onEditorChange={ (_, editor) => {
                 contentRef.current = editor
             }}
