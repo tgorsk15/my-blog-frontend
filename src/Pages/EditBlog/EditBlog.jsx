@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, useNavigate } from "react-router-dom"
 import { useRef, useState } from "react";
 import { getEnvVariable } from "../../utils/apiSetter"
 import { PostEditor } from "../../Components/Editor/Editor";
@@ -7,7 +7,7 @@ import blogStyles from "./blogEditor.module.css";
 
 export const EditBlog = () => {
     const post = useLoaderData()
-    console.log(post)
+    const navigate = useNavigate();
 
     const titleRef = useRef(post.title)
     const contentRef = useRef(post.content);
@@ -35,7 +35,6 @@ export const EditBlog = () => {
         // left off here... start building this out
         const token = localStorage.getItem('token')
         const postId = post.id
-        console.log(postId);
 
         const options = {
             method: "PUT",
@@ -50,10 +49,11 @@ export const EditBlog = () => {
             const apiUrl = getEnvVariable();
             const response = await fetch(`${apiUrl}/post/edit/${postId}`, options)
 
+            navigate("/blogDash")
         } catch(err) {
             console.log(err)
         }
-
+        
     }
 
     return (
@@ -68,15 +68,7 @@ export const EditBlog = () => {
                     type="text"
                     name="postName"
                     defaultValue={post.title}
-                    // onChange={(e) => {
-                    //     setTitle(e.target.value)
-                        
-                    // }}
                     ref={titleRef}
-                    // TMW 10/18: continue setting this up and connecting to
-                    // handleSubmitChange, where Refs will change to current value
-                    // (follow along with GPT prompt if needed)
-                    
                 />
 
                 <label htmlFor="postContent">Post Body:</label>
