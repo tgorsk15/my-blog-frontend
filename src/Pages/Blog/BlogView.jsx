@@ -1,15 +1,13 @@
 import { useLoaderData } from "react-router-dom"
-
 import { formatDate } from "../../utils/formatDate";
+
 import viewStyles from "./blogView.module.css"
+import { Comments } from "../../Components/Comments/Comments";
 
 export const BlogView = () => {
     const post = useLoaderData();
     console.log('here is the loaded post', post)
     const formattedDate = formatDate(post.createdAt)
-
-    // idea: have a separate Comments Component that I can plug in at
-    // the end BlogView
     
 
     return (
@@ -24,6 +22,12 @@ export const BlogView = () => {
                         dangerouslySetInnerHTML={{__html: post.content}}
                     />
                 </div>
+            </div>
+            <div className={viewStyles.commentSection}>
+                <h2>Comments</h2>
+                <Comments 
+                    post= {post}
+                />
             </div>
         </section>
     )

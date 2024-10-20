@@ -15,7 +15,6 @@ export const Login = () => {
         const formData = new FormData(e.target);
         const username = formData.get('username')
         const password = formData.get('password')
-        console.log(username, password)
 
         const options = {
             method: "POST",
