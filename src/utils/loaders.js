@@ -90,10 +90,16 @@ export const getSinglePost = async ({ params }) => {
         const data = await response.json()
         console.log('post in loader function', data)
 
+        const commentsArray = data.post.comments
+
         if (!response.ok) {
             console.log('not ok')
             return null
         } else {
+            commentsArray.forEach(comment => {
+                const newDate = formatDate(comment.createdAt)
+                comment.createdAt = newDate
+            });
             return data.post
         }
         
@@ -119,11 +125,16 @@ export const getSinglePostById = async (postId) => {
         const response = await fetch(`${apiUrl}/post/view/${postId}`, options)
         const data = await response.json()
         console.log('post in loader function', data)
+        const commentsArray = data.post.comments
 
         if (!response.ok) {
             console.log('not ok')
             return null
         } else {
+            commentsArray.forEach(comment => {
+                const newDate = formatDate(comment.createdAt)
+                comment.createdAt = newDate
+            });
             return data.post
         }
         

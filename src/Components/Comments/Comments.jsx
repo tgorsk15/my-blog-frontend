@@ -41,9 +41,8 @@ export const Comments = ({ post, handlePostChange, commentList }) => {
                 return null
             } else {
                 console.log('success, setting state');
+                // update post state, comment list:
                 handlePostChange(updatedPost.id)
-                // set state here for new version of post
-                // ... that way, whole page component reloads, new comments are shown
             }
 
         } catch(err) {
@@ -69,10 +68,17 @@ export const Comments = ({ post, handlePostChange, commentList }) => {
                 {/* map through comments list */}
                 {commentList.map((comment) => {
                     return (
-                        <div key={comment.id}>
-                            <h4>Hi this is a comment</h4>
+                        <div className={viewStyles.commentContainer} key={comment.id}>
+                            <div className={viewStyles.topSection}>
+                                <h4>{comment.username}</h4>
+                                <h5>{comment.createdAt}</h5>
+                            </div>
+                            <p className={viewStyles.commentTxt}> 
+                                {comment.content}
+                            </p>
+                            
+
                         </div>
-                        
                     )
                 })}
 
