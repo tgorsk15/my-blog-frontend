@@ -73,11 +73,25 @@ export const Comments = ({ post, handlePostChange, commentList }) => {
                                 <h4>{comment.username}</h4>
                                 <h5>{comment.createdAt}</h5>
                             </div>
-                            <p className={viewStyles.commentTxt}> 
-                                {comment.content}
-                            </p>
-                            
+                            <div className={viewStyles.bottomSection}>
+                                <p className={viewStyles.commentTxt}> 
+                                    {comment.content}
+                                </p>
+                                <div className={viewStyles.feedbackBox}>
+                                    <button className={viewStyles.likeBtn}>
+                                        L
+                                    </button>
+                                    <p className={viewStyles.likeCounter}>
+                                        {comment.likes}
+                                    </p>
+                                    <button className={viewStyles.dislikeBtn}>
+                                        D
+                                    </button>
 
+                                </div>
+                            </div>
+                            
+                            
                         </div>
                     )
                 })}
@@ -89,7 +103,7 @@ export const Comments = ({ post, handlePostChange, commentList }) => {
                     handleAddClick(e);
                 }}
             >
-                Add a Comment
+                Add a Comment  <strong>+</strong>
             </button>
             {boxVisible && (
                 <div className={viewStyles.createCommentContainer}>
