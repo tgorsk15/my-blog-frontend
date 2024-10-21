@@ -1,15 +1,49 @@
 import { useLoaderData, useNavigate } from "react-router-dom"
 import { useRef, useState } from "react";
+import { useAuth } from "../../utils/useAuth";
+import { getEnvVariable } from "../../utils/apiSetter"
+import PropTypes, { object } from "prop-types"
 
 import viewStyles from "../../Pages/Blog/blogView.module.css"
 
 export const Comments = ({ post }) => {
     console.log('post comments are under', post)
+    // need to pull in user... for posting comments
+    const { userData } = useAuth();
 
+    // left off here... need to also figure out how to submit textArea data
     const [boxVisible, setVisible] = useState(false)
+    const textAreaRef = useRef()
 
-    function handleAddComment() {
-        
+    async function handleAddComment() {
+        const userId = userData.id
+        const commentContent = textAreaRef.current.value 
+        console.log(commentContent)
+
+        const token = localStorage.getItem('token');
+        const options = {
+            method: "POST",
+            headers: {"Content-Type": "application/json", "Authorization": token},
+            body: JSON.stringify({
+                commentContent,
+                userId
+            })
+        }
+
+        try {
+            const apiUrl = getEnvVariable()
+            const response = await fetch(`${apiUrl}/comment/create/${post.id}`, options)
+
+            if (!response.ok) {
+                console.log('not ok')
+                return null
+            } else {
+                console.log('yes')
+            }
+
+        } catch(err) {
+            console.log(err)
+        }
     }
 
     function handleAddClick(e) {
@@ -25,7 +59,6 @@ export const Comments = ({ post }) => {
 
     return (
         <div className={viewStyles.commentsContainer}>
-            Hi this si the Comments
             <div className={viewStyles.commentsList}>
                 {/* put conditional here for when there is no comments */}
                 {/* map through comments list */}
@@ -40,13 +73,11 @@ export const Comments = ({ post }) => {
                 Add a Comment
             </button>
             {boxVisible && (
-                // left off here... build out textArea input (or entire form)
-                // on submit, it will trigger handleAddComment...
-                // this function will call the API and modify the database
                 <div className={viewStyles.createCommentContainer}>
                     <textarea 
                         name="newComment" 
                         id="newComment"
+                        ref={textAreaRef}
                         placeholder="Write Something..."
                         rows={8}
                         cols={95}
@@ -61,4 +92,8 @@ export const Comments = ({ post }) => {
             )}
         </div>
     )
+}
+
+Comments.propTypes = {
+    post: PropTypes.object
 }
