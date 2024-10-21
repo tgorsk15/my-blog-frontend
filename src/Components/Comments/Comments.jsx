@@ -6,12 +6,11 @@ import PropTypes, { object } from "prop-types"
 
 import viewStyles from "../../Pages/Blog/blogView.module.css"
 
-export const Comments = ({ post }) => {
+export const Comments = ({ post, handlePostChange, commentList }) => {
     console.log('post comments are under', post)
-    // need to pull in user... for posting comments
+    // need to pull in user to connect to new comments
     const { userData } = useAuth();
 
-    // left off here... need to also figure out how to submit textArea data
     const [boxVisible, setVisible] = useState(false)
     const textAreaRef = useRef()
 
@@ -34,13 +33,15 @@ export const Comments = ({ post }) => {
             const apiUrl = getEnvVariable()
             const response = await fetch(`${apiUrl}/comment/create/${post.id}`, options)
             const data = await response.json()
-            console.log(data)
+            console.log('data after comment insertion', data)
+            const updatedPost = data.post
 
             if (!response.ok) {
                 console.log('not ok')
                 return null
             } else {
                 console.log('success, setting state');
+                handlePostChange(updatedPost.id)
                 // set state here for new version of post
                 // ... that way, whole page component reloads, new comments are shown
             }
@@ -66,6 +67,14 @@ export const Comments = ({ post }) => {
             <div className={viewStyles.commentsList}>
                 {/* put conditional here for when there is no comments */}
                 {/* map through comments list */}
+                {commentList.map((comment) => {
+                    return (
+                        <div key={comment.id}>
+                            <h4>Hi this is a comment</h4>
+                        </div>
+                        
+                    )
+                })}
 
             </div>
             <button 
@@ -99,5 +108,7 @@ export const Comments = ({ post }) => {
 }
 
 Comments.propTypes = {
-    post: PropTypes.object
+    post: PropTypes.object,
+    handlePostChange: PropTypes.func,
+    commentList: PropTypes.array
 }

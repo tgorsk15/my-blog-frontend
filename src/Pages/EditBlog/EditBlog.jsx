@@ -13,13 +13,6 @@ export const EditBlog = () => {
     const contentRef = useRef(post.content);
     console.log('reference to content', contentRef)
 
-
-    // ...might be an issue in being able to view the original HTML script inside
-    // of the MCE Editor
-    // ^^ maybe set up some sort of conditional that checks if editor is in "edit"
-    // mode as opposed to "create" mode -> can set up a state variable for this,
-    // then pass down as a prop
-
     function handleSubmitClick(e) {
         e.preventDefault()
 
