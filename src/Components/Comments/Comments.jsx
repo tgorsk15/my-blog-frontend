@@ -33,12 +33,16 @@ export const Comments = ({ post }) => {
         try {
             const apiUrl = getEnvVariable()
             const response = await fetch(`${apiUrl}/comment/create/${post.id}`, options)
+            const data = await response.json()
+            console.log(data)
 
             if (!response.ok) {
                 console.log('not ok')
                 return null
             } else {
-                console.log('yes')
+                console.log('success, setting state');
+                // set state here for new version of post
+                // ... that way, whole page component reloads, new comments are shown
             }
 
         } catch(err) {
