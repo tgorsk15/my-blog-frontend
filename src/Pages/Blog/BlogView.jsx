@@ -18,7 +18,6 @@ export const BlogView = () => {
     async function handlePostChange(postId) {
         const newPost = await getSinglePostById(postId);
         const newComments = newPost.comments;
-        // console.log('changing post... here is new:', newPost)
         setPost(newPost)
         setList(newComments);
     }
