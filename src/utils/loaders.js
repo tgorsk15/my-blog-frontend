@@ -111,8 +111,6 @@ export const getSinglePost = async ({ params }) => {
 
 export const getSinglePostById = async (postId) => {
     const token = localStorage.getItem('token')
-    console.log('chosenId:', postId)
-
     const options = {
         method: "GET",
         headers: {"Content-Type": "application/json", "Authorization": token},
@@ -123,9 +121,9 @@ export const getSinglePostById = async (postId) => {
         const apiUrl = getEnvVariable()
 
         const response = await fetch(`${apiUrl}/post/view/${postId}`, options)
-        const data = await response.json()
-        console.log('post in loader function', data)
-        const commentsArray = data.post.comments
+        const data = await response.json();
+        // console.log('post in loader function', data);
+        const commentsArray = data.post.comments;
 
         if (!response.ok) {
             console.log('not ok')

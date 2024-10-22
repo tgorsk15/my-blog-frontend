@@ -1,10 +1,10 @@
-import { useLoaderData, useNavigate } from "react-router-dom"
 import { useRef, useState } from "react";
 import { useAuth } from "../../utils/useAuth";
 import { getEnvVariable } from "../../utils/apiSetter"
 import PropTypes, { object } from "prop-types"
 
 import viewStyles from "../../Pages/Blog/blogView.module.css"
+import { Feedback } from "./CmtFeedback";
 
 export const Comments = ({ post, handlePostChange, 
     commentList, handleLikeChange }) => {
@@ -106,7 +106,6 @@ export const Comments = ({ post, handlePostChange,
         }
 
     }
-// left off here... need to find a way to disable like on comment after it has been clicked
 
 
     return (
@@ -125,28 +124,11 @@ export const Comments = ({ post, handlePostChange,
                                 <p className={viewStyles.commentTxt}> 
                                     {comment.content}
                                 </p>
-                                <div className={viewStyles.feedbackBox}>
-                                    <button 
-                                        className={viewStyles.likeBtn}
-                                        onClick={() => {
-                                            handleLike(comment.likes, comment.id)
-                                        }}
-                                    >
-                                        <i className="fa-regular fa-thumbs-up"></i>
-                                    </button>
-                                    <p className={viewStyles.likeCounter}>
-                                        {comment.likes}
-                                    </p>
-                                    <button 
-                                        className={viewStyles.dislikeBtn}
-                                        onClick={() => {
-                                            handleDislike(comment.likes, comment.id)
-                                        }}
-                                    >
-                                        <i className="fa-regular fa-thumbs-down"></i>
-                                    </button>
-
-                                </div>
+                                <Feedback 
+                                    comment = {comment}
+                                    handleLike = {handleLike}
+                                    handleDislike = {handleDislike}
+                                />
                             </div>
                             
                             
@@ -188,5 +170,6 @@ export const Comments = ({ post, handlePostChange,
 Comments.propTypes = {
     post: PropTypes.object,
     handlePostChange: PropTypes.func,
-    commentList: PropTypes.array
+    commentList: PropTypes.array,
+    handleLikeChange: PropTypes.func
 }

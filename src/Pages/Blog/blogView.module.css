@@ -121,6 +121,10 @@
     color: orange;
 }
 
+.feedbackBox > button > i:active {
+    color: rgb(195, 218, 92);
+}
+
 
 
 .addCommentBtn {
