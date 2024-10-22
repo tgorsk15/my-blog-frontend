@@ -18,9 +18,13 @@ export const BlogView = () => {
     async function handlePostChange(postId) {
         const newPost = await getSinglePostById(postId);
         const newComments = newPost.comments;
-        console.log('changing post... here is new:', newPost)
+        // console.log('changing post... here is new:', newPost)
         setPost(newPost)
         setList(newComments);
+    }
+
+    async function handleLikeChange() {
+
     }
 
     return (
@@ -42,6 +46,7 @@ export const BlogView = () => {
                     post= {currentPost}
                     handlePostChange= {handlePostChange}
                     commentList= {commentList}
+                    handleLikeChange= {handleLikeChange}
                 />
             </div>
         </section>

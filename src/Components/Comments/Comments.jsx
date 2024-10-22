@@ -7,7 +7,7 @@ import PropTypes, { object } from "prop-types"
 import viewStyles from "../../Pages/Blog/blogView.module.css"
 
 export const Comments = ({ post, handlePostChange, commentList }) => {
-    console.log('post comments are under', post)
+    // console.log('post comments are under', post)
     // need to pull in user to connect to new comments
     const { userData } = useAuth();
 
@@ -61,6 +61,44 @@ export const Comments = ({ post, handlePostChange, commentList }) => {
         }
     }
 
+    function handleLike(likes, commentId) {
+        const liked = true
+        commentLikeFetch(liked, commentId, likes)
+    }
+
+    function handleDislike(likes, commentId) {
+        const liked = false
+        commentLikeFetch(liked, commentId, likes)
+    }
+
+    async function commentLikeFetch(liked, commentId, likes) {
+        console.log('paramteres', liked, commentId, likes)
+        const token = localStorage.getItem('token')
+        const options = {
+            method: "PUT",
+            headers: {"Content-Type": "application/json", "Authorization": token},
+            body: JSON.stringify({
+                likes
+            })
+        }
+
+        try {
+            const apiUrl = getEnvVariable()
+            let response;
+            if (liked) {
+                response = await fetch(`${apiUrl}/comment/like/${commentId}`, options)
+            } else if (!liked) {
+                response = await fetch(`${apiUrl}/comment/unlike/${commentId}`, options)
+            }
+            const data = await response.json()
+            console.log(data)
+
+        } catch(err) {
+            console.log(err)
+        }
+
+    }
+
     return (
         <div className={viewStyles.commentsContainer}>
             <div className={viewStyles.commentsList}>
@@ -78,13 +116,23 @@ export const Comments = ({ post, handlePostChange, commentList }) => {
                                     {comment.content}
                                 </p>
                                 <div className={viewStyles.feedbackBox}>
-                                    <button className={viewStyles.likeBtn}>
+                                    <button 
+                                        className={viewStyles.likeBtn}
+                                        onClick={() => {
+                                            handleLike(comment.likes, comment.id)
+                                        }}
+                                    >
                                         L
                                     </button>
                                     <p className={viewStyles.likeCounter}>
                                         {comment.likes}
                                     </p>
-                                    <button className={viewStyles.dislikeBtn}>
+                                    <button 
+                                        className={viewStyles.dislikeBtn}
+                                        onClick={() => {
+                                            handleDislike(comment.likes, comment.id)
+                                        }}
+                                    >
                                         D
                                     </button>
 
