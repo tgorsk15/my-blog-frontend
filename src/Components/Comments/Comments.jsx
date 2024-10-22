@@ -106,6 +106,8 @@ export const Comments = ({ post, handlePostChange,
         }
 
     }
+// left off here... need to find a way to disable like on comment after it has been clicked
+
 
     return (
         <div className={viewStyles.commentsContainer}>
@@ -130,7 +132,7 @@ export const Comments = ({ post, handlePostChange,
                                             handleLike(comment.likes, comment.id)
                                         }}
                                     >
-                                        L
+                                        <i className="fa-regular fa-thumbs-up"></i>
                                     </button>
                                     <p className={viewStyles.likeCounter}>
                                         {comment.likes}
@@ -141,7 +143,7 @@ export const Comments = ({ post, handlePostChange,
                                             handleDislike(comment.likes, comment.id)
                                         }}
                                     >
-                                        D
+                                        <i className="fa-regular fa-thumbs-down"></i>
                                     </button>
 
                                 </div>
