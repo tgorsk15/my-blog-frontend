@@ -8,7 +8,6 @@ import { Feedback } from "./CmtFeedback";
 
 export const Comments = ({ post, handlePostChange, 
     commentList, handleLikeChange }) => {
-    // console.log('post comments are under', post)
     // need to pull in user to connect to new comments
     const { userData } = useAuth();
 
@@ -18,7 +17,6 @@ export const Comments = ({ post, handlePostChange,
     async function handleAddComment() {
         const userId = userData.id
         const commentContent = textAreaRef.current.value 
-        console.log(commentContent)
 
         const token = localStorage.getItem('token');
         const options = {
@@ -41,9 +39,11 @@ export const Comments = ({ post, handlePostChange,
                 console.log('not ok')
                 return null
             } else {
-                console.log('success, setting state');
+
                 // update post state, comment list:
                 handlePostChange(updatedPost.id)
+                textAreaRef.current = '';
+                setVisible(false)
             }
 
         } catch(err) {
@@ -54,10 +54,10 @@ export const Comments = ({ post, handlePostChange,
     function handleAddClick(e) {
         console.log('adding comment')
         if (boxVisible) {
-            e.target.textContent = 'Add a Comment'
+            // e.target.textContent = 'Add a Comment'
             setVisible(false)
         } else if (!boxVisible) {
-            e.target.textContent = 'X Cancel'
+            // e.target.textContent = 'X Cancel'
             setVisible(true)
         }
     }
@@ -137,17 +137,19 @@ export const Comments = ({ post, handlePostChange,
                 })}
 
             </div>
-            <button 
-                className={viewStyles.addCommentBtn}
-                onClick={(e) => {
-                    handleAddClick(e);
-                }}
-            >
-                Add a Comment  <strong>+</strong>
-            </button>
+            <div className={viewStyles.btnHolder}>
+                <button 
+                    className={viewStyles.addCommentBtn}
+                    onClick={(e) => {
+                        handleAddClick(e);
+                    }}
+                >
+                    {boxVisible ? 'X Cancel' : 'Add a Comment +'}
+                </button>
+            </div>
             {boxVisible && (
                 <div className={viewStyles.createCommentContainer}>
-                    <textarea 
+                    <textarea
                         name="newComment" 
                         id="newComment"
                         ref={textAreaRef}
@@ -157,9 +159,15 @@ export const Comments = ({ post, handlePostChange,
                         maxLength={420}
                     >
                     </textarea>
-                    <button onClick={handleAddComment}>
-                        Post
-                    </button>
+                    <div className={viewStyles.postBtnHolder}>
+                        <button 
+                            onClick={handleAddComment}
+                            className={viewStyles.postNewBtn}
+                        >
+                            Post
+                        </button>    
+                    </div>
+                    
                 </div>
                 
             )}

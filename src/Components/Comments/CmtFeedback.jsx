@@ -1,13 +1,9 @@
-import { useRef, useState } from "react";
-import PropTypes, { object } from "prop-types"
+import { useRef } from "react";
+import PropTypes from "prop-types"
 
 import viewStyles from "../../Pages/Blog/blogView.module.css"
 
 export const Feedback = ({comment, handleLike, handleDislike}) => {
-    // const [likeClicked, setLike] = useState(false)
-    // const [dislikeClicked, setDislike] = useState(false)
-
-    // lets try using Refs before utilizing the above states:
     const likeRef = useRef(false);
     const unlikeRef = useRef(false);
 
@@ -20,12 +16,10 @@ export const Feedback = ({comment, handleLike, handleDislike}) => {
         switch(action) {
             case ACTIONS.LIKE:
                 if (!likeRef.current) {
-                    console.log('clicking it')
                     likeRef.current = true;
                     handleLike(likes, commentId)
                     btn.classList.add(viewStyles.clickedBtn)
                 } else {
-                    console.log('unclicking it')
                     likeRef.current = false
                     handleDislike(likes, commentId)
                     btn.classList.remove(viewStyles.clickedBtn)
@@ -33,12 +27,10 @@ export const Feedback = ({comment, handleLike, handleDislike}) => {
                 break;
             case ACTIONS.DISLIKE:
                 if (!unlikeRef.current) {
-                    console.log('clicking it')
                     unlikeRef.current = true;
                     handleDislike(likes, commentId)
                     btn.classList.add(viewStyles.clickedBtn)
                 } else {
-                    console.log('unclicking it')
                     unlikeRef.current = false
                     handleLike(likes, commentId)
                     btn.classList.remove(viewStyles.clickedBtn)
