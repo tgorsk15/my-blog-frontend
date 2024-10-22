@@ -16,17 +16,19 @@ export const Feedback = ({comment, handleLike, handleDislike}) => {
         DISLIKE: 'DISLIKE'
     }
 
-    function handleButtonClick(likes, commentId, action) {
+    function handleButtonClick(likes, commentId, action, btn) {
         switch(action) {
             case ACTIONS.LIKE:
                 if (!likeRef.current) {
                     console.log('clicking it')
                     likeRef.current = true;
                     handleLike(likes, commentId)
+                    btn.classList.add(viewStyles.clickedBtn)
                 } else {
                     console.log('unclicking it')
                     likeRef.current = false
                     handleDislike(likes, commentId)
+                    btn.classList.remove(viewStyles.clickedBtn)
                 }
                 break;
             case ACTIONS.DISLIKE:
@@ -34,10 +36,12 @@ export const Feedback = ({comment, handleLike, handleDislike}) => {
                     console.log('clicking it')
                     unlikeRef.current = true;
                     handleDislike(likes, commentId)
+                    btn.classList.add(viewStyles.clickedBtn)
                 } else {
                     console.log('unclicking it')
                     unlikeRef.current = false
                     handleLike(likes, commentId)
+                    btn.classList.remove(viewStyles.clickedBtn)
                 }
                 break;
             default:
@@ -53,7 +57,7 @@ export const Feedback = ({comment, handleLike, handleDislike}) => {
                 onClick={(e) => {
                     const btn = e.currentTarget;
                     btn.disabled = true;
-                    handleButtonClick(comment.likes, comment.id, ACTIONS.LIKE)
+                    handleButtonClick(comment.likes, comment.id, ACTIONS.LIKE, btn)
                     setTimeout(() => {
                         btn.disabled = false
                     }, 1000)
@@ -69,7 +73,7 @@ export const Feedback = ({comment, handleLike, handleDislike}) => {
                 onClick={(e) => {
                     const btn = e.currentTarget;
                     btn.disabled = true;
-                    handleButtonClick(comment.likes, comment.id, ACTIONS.DISLIKE)
+                    handleButtonClick(comment.likes, comment.id, ACTIONS.DISLIKE, btn)
                     setTimeout(() => {
                         btn.disabled = false
                     }, 1000)
