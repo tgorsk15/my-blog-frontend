@@ -8,7 +8,7 @@ import { Comments } from "../../Components/Comments/Comments";
 
 export const BlogView = () => {
     const initialPost = useLoaderData();
-    console.log('here is the loaded post', initialPost)
+    // console.log('here is the loaded post', initialPost)
 
     const [currentPost, setPost] = useState(initialPost)
     const [commentList, setList] = useState(initialPost.comments)
@@ -22,8 +22,10 @@ export const BlogView = () => {
         setList(newComments);
     }
 
-    async function handleLikeChange() {
-
+    async function handleLikeChange(postId) {
+        const newPost = await getSinglePostById(postId);
+        const newComments = newPost.comments;
+        setList(newComments)
     }
 
     return (

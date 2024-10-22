@@ -6,7 +6,8 @@ import PropTypes, { object } from "prop-types"
 
 import viewStyles from "../../Pages/Blog/blogView.module.css"
 
-export const Comments = ({ post, handlePostChange, commentList }) => {
+export const Comments = ({ post, handlePostChange, 
+    commentList, handleLikeChange }) => {
     // console.log('post comments are under', post)
     // need to pull in user to connect to new comments
     const { userData } = useAuth();
@@ -92,6 +93,13 @@ export const Comments = ({ post, handlePostChange, commentList }) => {
             }
             const data = await response.json()
             console.log(data)
+
+            if (!response.ok) {
+                console.log('not ok')
+                return null
+            } else {
+                handleLikeChange(post.id);
+            }
 
         } catch(err) {
             console.log(err)
