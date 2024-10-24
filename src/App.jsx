@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+import { useAuth } from './utils/useAuth';
 
 import { Root } from './Pages/Root/Root'
 import { Profile } from './Pages/Profile/Profile'
@@ -14,9 +15,11 @@ import { CreateBlog } from './Pages/CreateBlog/CreateBlog'
 import { EditBlog } from './Pages/EditBlog/EditBlog';
 
 import { getPublicPosts, getSinglePost, getAllPosts } from './utils/loaders';
+import { element } from 'prop-types';
 
 
 function App() {
+  const { userData } = useAuth();
 
   const routes = [
     {
@@ -24,11 +27,10 @@ function App() {
       element: <Root />,
       id: "root",
       errorElement: <Error />,
-      // loader: getPublicPosts,
       children: [
         {
           index: true, 
-          element: <Navigate to="/profile" replace />, 
+          element: userData ? <Navigate to="/home" replace /> : <Navigate to="/profile" replace />
         },
         {
           path: "profile",

@@ -102,10 +102,6 @@
   color: purple;
 }
 
-/* TMW 10/23: need to figure out why dropdown doesn't show up on hover
-... when done, maybe move on to ensuring there's code logic for when the user token runs out*/
-
-
 .dropdown-container > li{
   display: block;
   list-style-type: none;
