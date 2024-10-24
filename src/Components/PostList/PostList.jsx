@@ -36,7 +36,6 @@ export const PostList = ({ activeList, handleListChange }) => {
                 console.log('not ok')
                 return null
             } else {
-                // const data = await response.json()
                 handleListChange(savedButtonText)
                 return
             }

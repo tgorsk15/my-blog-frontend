@@ -30,9 +30,21 @@ function handleLogout() {
                         </li>
                     )}
                     {userData ? (
-                        <li>
-                            <Link to="/profile" onClick={handleLogout}>Logout</Link>
-                        </li>
+                        <div className='dropdown-section'>
+                            <button className='profile-btn'>
+                                Profile <i className="fa-solid fa-caret-down"></i>
+                            </button>
+                            <div className='dropdown-container'>
+                                <li className='user-info-li'>
+                                    <i className="fa-regular fa-user"></i>
+                                    User Info
+                                </li>
+                                <li className='user-logout-li'>
+                                    <Link to="/profile" onClick={handleLogout}>Logout</Link>
+                                </li>
+                            </div>
+
+                        </div>
                     
                     ) : (
                         <li>
