@@ -113,28 +113,36 @@ export const Comments = ({ post, handlePostChange,
             <div className={viewStyles.commentsList}>
                 {/* put conditional here for when there is no comments */}
                 {/* map through comments list */}
-                {commentList.map((comment) => {
-                    return (
-                        <div className={viewStyles.commentContainer} key={comment.id}>
-                            <div className={viewStyles.topSection}>
-                                <h4>{comment.username}</h4>
-                                <h5>{comment.createdAt}</h5>
+                {commentList.length > 0 ? (
+                    commentList.map((comment) => {
+                        return (
+                            <div className={viewStyles.commentContainer} key={comment.id}>
+                                <div className={viewStyles.topSection}>
+                                    <h4>{comment.username}</h4>
+                                    <h5>{comment.createdAt}</h5>
+                                </div>
+                                <div className={viewStyles.bottomSection}>
+                                    <p className={viewStyles.commentTxt}> 
+                                        {comment.content}
+                                    </p>
+                                    <Feedback 
+                                        comment = {comment}
+                                        handleLike = {handleLike}
+                                        handleDislike = {handleDislike}
+                                    />
+                                </div>
+                                
+                                
                             </div>
-                            <div className={viewStyles.bottomSection}>
-                                <p className={viewStyles.commentTxt}> 
-                                    {comment.content}
-                                </p>
-                                <Feedback 
-                                    comment = {comment}
-                                    handleLike = {handleLike}
-                                    handleDislike = {handleDislike}
-                                />
-                            </div>
-                            
-                            
-                        </div>
-                    )
-                })}
+                        )
+                    })
+                )
+                : (
+                    <div className={viewStyles.noCommentsBox}>
+                        <h2>... No one has commented yet</h2>
+                    </div>
+                )}
+                
 
             </div>
             <div className={viewStyles.btnHolder}>
