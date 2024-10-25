@@ -8,7 +8,6 @@ import { Comments } from "../../Components/Comments/Comments";
 
 export const BlogView = () => {
     const initialPost = useLoaderData();
-    // console.log('here is the loaded post', initialPost)
 
     const [currentPost, setPost] = useState(initialPost)
     const [commentList, setList] = useState(initialPost.comments)

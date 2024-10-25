@@ -19,14 +19,20 @@ import { element } from 'prop-types';
 
 
 function App() {
-  const { userData } = useAuth();
+  const { logout } = useAuth();
+  const userData = JSON.parse(localStorage.getItem('user'))
+  console.log('user data in App:', userData)
+  // temporary use:
+  // localStorage.removeItem('token');
+  // localStorage.removeItem('user')
+
 
   const routes = [
     {
       path: "/",
       element: <Root />,
       id: "root",
-      errorElement: <Error />,
+      // errorElement: <Error />,
       children: [
         {
           index: true, 
@@ -35,7 +41,7 @@ function App() {
         {
           path: "profile",
           element: <Profile />,
-          errorElement: <Error />,
+          // errorElement: <Error />,
 
           children: [
             {
@@ -52,7 +58,7 @@ function App() {
           path: "home",
           id: "homeData",
           element: <Home />,
-          loader: getPublicPosts
+          loader: () => getPublicPosts({ logout })
         },
         {
           path: "viewBlog/:postId",

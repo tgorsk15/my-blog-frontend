@@ -1,4 +1,4 @@
-import { useLoaderData, useRouteLoaderData, Link } from "react-router-dom"
+import { useLoaderData, Link } from "react-router-dom"
 import { useState } from "react"
 import { getAllPosts } from "../../utils/loaders"
 import { PostList } from "../../Components/PostList/PostList"

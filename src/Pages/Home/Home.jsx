@@ -7,20 +7,23 @@ import { BlogItem } from "../../Components/BlogItem/BlogItem"
 import homeStyles from "./home.module.css"
 
 export const Home = () => {
+    console.log('is this loading?')
     const postsList = useLoaderData()
     
     // call isExpired() function here
     // ... if expired, maybe just pull the logout()
     // function from useAuth, and then call it to kick user out
 
-    const { userData, token, logout } = useAuth()
+    const { logout } = useAuth()
+    const token = localStorage.getItem('token')
+    const userData = JSON.parse(localStorage.getItem('user'))
     console.log('user and token info:', userData, token)
 
     // if token is expired, log user out:
-    const tokenExp = isTokenExpired(token)
-    if (tokenExp) {
-        logout()
-    }
+    // const tokenExp = isTokenExpired(token)
+    // if (tokenExp) {
+    //     logout()
+    // }
 
     return (
         <div>

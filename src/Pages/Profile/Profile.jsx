@@ -22,4 +22,3 @@ export const Profile = () => {
     )
 }
 
-// need to continue to work on fetching login and getting token back
