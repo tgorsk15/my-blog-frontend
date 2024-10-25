@@ -12,6 +12,7 @@ export const AuthContextProvider = ({ children }) => {
     const login = (data) => {
         setUserData(data.user);
         setToken(data.token);
+        console.log('expiration time:', data.expiresIn)
         // save to localStorage:
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
