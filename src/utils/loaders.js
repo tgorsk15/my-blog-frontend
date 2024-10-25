@@ -6,12 +6,7 @@ import { isTokenExpired } from "./checkExpire";
 
 export const getAllPosts = async ({ logout }) => {
     const token = localStorage.getItem('token')
-    // const tokenExp = isTokenExpired(token)
-    // if (tokenExp) {
-    //     localStorage.removeItem('token');  // Clear token
-    //     localStorage.removeItem('user');   // Clear user data
-    //     return redirect('/profile/login')
-    // }
+
     const tokenExp = isTokenExpired(token)
     if (tokenExp) {
         logout()
@@ -50,13 +45,6 @@ export const getAllPosts = async ({ logout }) => {
 
 export const getPublicPosts = async ({ logout }) => {
     const token = localStorage.getItem('token')
-    // const tokenExp = isTokenExpired(token)
-    // console.log('token expired?', tokenExp)
-    // if (tokenExp) {
-    //     localStorage.removeItem('token');  // Clear token
-    //     localStorage.removeItem('user');   // Clear user data
-    //     return redirect('/profile/login')
-    // }
     
     const tokenExp = isTokenExpired(token)
     if (tokenExp) {
@@ -147,20 +135,8 @@ export const getSinglePost = async ({ params, logout }) => {
     }
 }
 
-export const getSinglePostById = async (postId, logout) => {
+export const getSinglePostById = async (postId) => {
     const token = localStorage.getItem('token')
-    // const tokenExp = isTokenExpired(token)
-    // console.log('token expired?', tokenExp)
-    // if (tokenExp) {
-    //     localStorage.removeItem('token');  // Clear token
-    //     localStorage.removeItem('user');   // Clear user data
-    //     return redirect('/profile/login')
-    // }
-    const tokenExp = isTokenExpired(token)
-    if (tokenExp) {
-        logout()
-        return redirect('/profile/login')
-    }
     
     const options = {
         method: "GET",
@@ -173,7 +149,6 @@ export const getSinglePostById = async (postId, logout) => {
 
         const response = await fetch(`${apiUrl}/post/view/${postId}`, options)
         const data = await response.json();
-        // console.log('post in loader function', data);
         const commentsArray = data.post.comments;
 
         if (!response.ok) {
@@ -193,3 +168,11 @@ export const getSinglePostById = async (postId, logout) => {
     }
 }
 
+
+// old method for isTokenExpired check:
+// const tokenExp = isTokenExpired(token)
+// if (tokenExp) {
+//     localStorage.removeItem('token');  // Clear token
+//     localStorage.removeItem('user');   // Clear user data
+//     return redirect('/profile/login')
+// }

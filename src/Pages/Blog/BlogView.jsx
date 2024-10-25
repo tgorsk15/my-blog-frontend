@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, redirect } from "react-router-dom"
 import { formatDate } from "../../utils/formatDate";
 import { getSinglePostById } from "../../utils/loaders";
+import { isTokenExpired } from "../../utils/checkExpire";
 
 import viewStyles from "./blogView.module.css"
 import { Comments } from "../../Components/Comments/Comments";
@@ -14,9 +15,15 @@ export const BlogView = () => {
     const [currentPost, setPost] = useState(initialPost)
     const [commentList, setList] = useState(initialPost.comments)
     const formattedDate = formatDate(initialPost.createdAt)
+    const token = localStorage.getItem('token')
     
     
     async function handlePostChange(postId) {
+        const tokenExp = await isTokenExpired(token)
+        if (tokenExp) {
+            logout()
+            return redirect('/profile/login')
+        }
         const newPost = await getSinglePostById(postId, logout);
         const newComments = newPost.comments;
         setPost(newPost)
@@ -24,6 +31,11 @@ export const BlogView = () => {
     }
 
     async function handleLikeChange(postId) {
+        const tokenExp = await isTokenExpired(token)
+        if (tokenExp) {
+            logout()
+            return redirect('/profile/login')
+        }
         const newPost = await getSinglePostById(postId, logout);
         const newComments = newPost.comments;
         setList(newComments)

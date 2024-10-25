@@ -7,13 +7,11 @@ import dashStyles from "./blogDash.module.css"
 
 export const BlogDash = () => {
     const initialAllPosts = useLoaderData()
-    console.log('all posts loaded:', initialAllPosts)
 
     const [allPosts, setAllPosts] = useState(initialAllPosts)
     const [publicPosts, setPublicPosts] = useState(() => 
         initialAllPosts.filter(post => post.published === true)
     )
-    console.log('public posts loaded:', publicPosts)
     const [activeList, setActive] = useState(publicPosts)
     const [activeType, setType] = useState("public")
 
@@ -30,9 +28,8 @@ export const BlogDash = () => {
     }
 
     async function handleListChange() {
-        // change state of allPosts here
-        // take the new allPosts and filter, to create new public list
-        // then, set state of publicposts to this new filtered list
+        // gather new list of posts
+        // then filter this to get new public posts list
         const newList = await getAllPosts();
         const filteredPosts = newList.filter(post => post.published === true)
         setAllPosts(newList);
