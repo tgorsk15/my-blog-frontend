@@ -4,12 +4,17 @@ import { getEnvVariable } from "./apiSetter"
 import { formatDate } from "./formatDate";
 import { isTokenExpired } from "./checkExpire";
 
-export const getAllPosts = async () => {
+export const getAllPosts = async ({ logout }) => {
     const token = localStorage.getItem('token')
+    // const tokenExp = isTokenExpired(token)
+    // if (tokenExp) {
+    //     localStorage.removeItem('token');  // Clear token
+    //     localStorage.removeItem('user');   // Clear user data
+    //     return redirect('/profile/login')
+    // }
     const tokenExp = isTokenExpired(token)
     if (tokenExp) {
-        localStorage.removeItem('token');  // Clear token
-        localStorage.removeItem('user');   // Clear user data
+        logout()
         return redirect('/profile/login')
     }
 
@@ -53,7 +58,6 @@ export const getPublicPosts = async ({ logout }) => {
     //     return redirect('/profile/login')
     // }
     
-
     const tokenExp = isTokenExpired(token)
     if (tokenExp) {
         logout()
@@ -97,13 +101,12 @@ export const getPublicPosts = async ({ logout }) => {
     }
 }
 
-export const getSinglePost = async ({ params }) => {
+export const getSinglePost = async ({ params, logout }) => {
     const token = localStorage.getItem('token')
+
     const tokenExp = isTokenExpired(token)
-    console.log('token expired?', tokenExp)
     if (tokenExp) {
-        localStorage.removeItem('token');  // Clear token
-        localStorage.removeItem('user');   // Clear user data
+        logout()
         return redirect('/profile/login')
     }
 
@@ -144,13 +147,18 @@ export const getSinglePost = async ({ params }) => {
     }
 }
 
-export const getSinglePostById = async (postId) => {
+export const getSinglePostById = async (postId, logout) => {
     const token = localStorage.getItem('token')
+    // const tokenExp = isTokenExpired(token)
+    // console.log('token expired?', tokenExp)
+    // if (tokenExp) {
+    //     localStorage.removeItem('token');  // Clear token
+    //     localStorage.removeItem('user');   // Clear user data
+    //     return redirect('/profile/login')
+    // }
     const tokenExp = isTokenExpired(token)
-    console.log('token expired?', tokenExp)
     if (tokenExp) {
-        localStorage.removeItem('token');  // Clear token
-        localStorage.removeItem('user');   // Clear user data
+        logout()
         return redirect('/profile/login')
     }
     

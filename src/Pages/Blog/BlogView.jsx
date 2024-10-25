@@ -5,9 +5,11 @@ import { getSinglePostById } from "../../utils/loaders";
 
 import viewStyles from "./blogView.module.css"
 import { Comments } from "../../Components/Comments/Comments";
+import { useAuth } from "../../utils/useAuth";
 
 export const BlogView = () => {
     const initialPost = useLoaderData();
+    const { logout } = useAuth()
 
     const [currentPost, setPost] = useState(initialPost)
     const [commentList, setList] = useState(initialPost.comments)
@@ -15,14 +17,14 @@ export const BlogView = () => {
     
     
     async function handlePostChange(postId) {
-        const newPost = await getSinglePostById(postId);
+        const newPost = await getSinglePostById(postId, logout);
         const newComments = newPost.comments;
         setPost(newPost)
         setList(newComments);
     }
 
     async function handleLikeChange(postId) {
-        const newPost = await getSinglePostById(postId);
+        const newPost = await getSinglePostById(postId, logout);
         const newComments = newPost.comments;
         setList(newComments)
     }

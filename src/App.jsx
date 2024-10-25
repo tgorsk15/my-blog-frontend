@@ -63,12 +63,13 @@ function App() {
         {
           path: "viewBlog/:postId",
           element: <BlogView />,
-          loader: getSinglePost,
+          loader: ({ params }) => getSinglePost({ params, logout })
         },
+        // left off here... yet another error when I try to view the post
         {
           path: "blogDash",
           element: <BlogDash />,
-          loader: getAllPosts,
+          loader: () => getAllPosts({ logout })
         },
         {
           path: "createBlog",
@@ -77,7 +78,7 @@ function App() {
         {
           path: "editBlog/:postId",
           element: <EditBlog />,
-          loader: getSinglePost
+          loader: ({ params }) => getSinglePost({ params, logout })
         }
       ]
     }

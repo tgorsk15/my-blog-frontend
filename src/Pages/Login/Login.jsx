@@ -46,7 +46,7 @@ export const Login = () => {
             
 
         } catch(error) {
-            console.log('hitting error in login?')
+            console.error('hitting error in login?')
             console.log(error)
         }
 
