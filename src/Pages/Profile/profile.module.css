@@ -1,0 +1,21 @@
+/* left off here:  style login screen further (maybe even style
+signup page too. And then look up how to create a 
+simple loader circle/animation */
+
+/* Profile Component */
+.profileSection {
+    
+}
+
+
+.userOptionsContainer {
+
+}
+
+.userOptionsContainer > * {
+    margin: 5px 0px;
+}
+
+.userOptionsContainer > p {
+    font-weight: bold;
+}

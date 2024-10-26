@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getEnvVariable } from "../../utils/apiSetter"
 
-import signupStyles from "./signup.module.css"
+import profileStyles from "../Profile/profile.module.css"
 
 export const SignUp = () => {
     const [signupError, setSignupError] = useState('')
