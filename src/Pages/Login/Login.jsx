@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useOutletContext } from "react-router-dom"
 import { getEnvVariable } from "../../utils/apiSetter"
 import { useState } from "react"
 import { useAuth } from "../../utils/useAuth"
@@ -9,6 +9,9 @@ export const Login = ({ changeUser }) => {
     const navigate = useNavigate()
 
     const { login } = useAuth()
+    const { handlePageChange } = useOutletContext()
+
+    handlePageChange(true)
 
     async function handleLogIn(e) {
         e.preventDefault()

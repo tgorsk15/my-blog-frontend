@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useOutletContext } from "react-router-dom"
 import { getEnvVariable } from "../../utils/apiSetter"
 
 import profileStyles from "../Profile/profile.module.css"
@@ -7,6 +7,9 @@ import profileStyles from "../Profile/profile.module.css"
 export const SignUp = () => {
     const [signupError, setSignupError] = useState('')
     const navigate = useNavigate()
+
+    const { handlePageChange } = useOutletContext()
+    handlePageChange(false)
 
     async function handleSignup(e) {
         e.preventDefault()
@@ -60,7 +63,7 @@ export const SignUp = () => {
             )}
 
             <form onSubmit={handleSignup}>
-                <div className={signupStyles.nameInfoContainer}>
+                <div className={profileStyles.nameInfoContainer}>
                     <label htmlFor="firstName">First Name:</label>
                     <input 
                         type="text" 
@@ -73,7 +76,7 @@ export const SignUp = () => {
                         name="lastName"
                     />
                 </div>
-                <div className={signupStyles.userInfoContainer}>
+                <div className={profileStyles.userInfoContainer}>
                     <label htmlFor="userEmail">Email</label>
                     <input 
                         type="email"

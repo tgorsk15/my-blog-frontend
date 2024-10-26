@@ -1,9 +1,15 @@
+import { useState } from 'react';
 import { Outlet, Link, useOutletContext } from 'react-router-dom';
 import profileStyles from "./profile.module.css";
 
 export const Profile = () => {
-    const { setToken } = useOutletContext()
+    const [onLogin, setLogin] = useState(true)
     
+    function handlePageChange(pageBoolean) {
+        pageBoolean === onLogin ? null : (
+            setLogin(pageBoolean)
+        )
+    }
 
     return (
         <section className={profileStyles.profileSection}>
@@ -12,18 +18,29 @@ export const Profile = () => {
                 
 
             <Outlet context={{
-                setToken,
-            }}/>
-<           div className={profileStyles.userOptionsContainer}>
+                handlePageChange
+            }}/>         
                 {/* <h4>
                     <Link to='/profile/login'>Sign in </Link>
                 </h4> 
                 <p>or</p> */}
-                <h4>Need an Account?</h4>
-                <h4>
-                    <Link to="/profile/signup" >Sign Up </Link> today!
-                </h4>
-            </div>
+                {onLogin ? (
+                    <div className={profileStyles.userOptionsContainer}>
+                        <h4>Need an Account?</h4>
+                        <h4>
+                            <Link to="/profile/signup" >Sign Up </Link> today!
+                        </h4>
+                    </div>
+                ) : (
+                    <div className={profileStyles.userOptionsContainer}>
+                        <h4>Already have an Account?</h4>
+                        <h4>
+                            <Link to="/profile/login" >Sign in </Link>
+                        </h4>
+                    </div>
+                )}
+                
+            
         </section>
     )
 }

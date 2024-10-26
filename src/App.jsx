@@ -1,7 +1,6 @@
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import './App.css'
 import { createBrowserRouter, RouterProvider, Navigate, redirect } from 'react-router-dom';
-import { createRoutes } from './routes';
 import { useAuth } from './utils/useAuth';
 
 import { Root } from './Pages/Root/Root'
@@ -17,31 +16,9 @@ import { EditBlog } from './Pages/EditBlog/EditBlog';
 
 import { getPublicPosts, getSinglePost, getAllPosts } from './utils/loaders';
 
-// function AppRoutes() {
-  
-//   const routes = createRoutes(userData, logout);
-//   return useRoutes(routes)
-// }
-
-
 function App() {
   const { logout, userData } = useAuth();
   const [currentUser, changeUser] = useState(userData)
-
-  // const router = useMemo(() => 
-  //   createBrowserRouter(createRoutes(userData, logout)),
-  //   [userData, logout]
-  // );
-
-  // return (
-  //   <>
-  //     <RouterProvider router={router} />
-  //   </>
-  // )
-
-  // const { logout, userData } = useAuth();
-  // // const userData = JSON.parse(localStorage.getItem('user'))
-  // console.log('user data in App:', userData)
 
   console.log('re-rendering App')
   const routes = [
@@ -54,9 +31,6 @@ function App() {
         {
           index: true, 
           element: currentUser ? <Navigate to="/home" replace /> : <Navigate to="/profile" replace />
-          // loader: () => {
-          //   return currentUser ? redirect('/home') : redirect('/profile')
-          // }
         },
         {
           path: "profile",
