@@ -53,7 +53,7 @@ export const SignUp = () => {
     }
 
     return (
-        <div>
+        <div className={profileStyles.signupSection}>
             {signupError !== '' && (
                 <div>
                     <h3>
@@ -62,44 +62,49 @@ export const SignUp = () => {
                 </div>
             )}
 
-            <form onSubmit={handleSignup}>
+            <form onSubmit={handleSignup} className={profileStyles.signupForm}>
+                <h2 className={profileStyles.signupTitle}>Create an Account</h2>
                 <div className={profileStyles.nameInfoContainer}>
-                    <label htmlFor="firstName">First Name:</label>
                     <input 
                         type="text" 
                         name="firstName"
+                        placeholder="First Name"
                     />
 
-                    <label htmlFor="lastName">Last Name:</label>
                     <input 
                         type="text" 
                         name="lastName"
+                        placeholder="Last Name"
                     />
                 </div>
                 <div className={profileStyles.userInfoContainer}>
-                    <label htmlFor="userEmail">Email</label>
                     <input 
                         type="email"
                         name="userEmail"
+                        placeholder="Email"
                     />
 
-                    <label htmlFor="username">Username:</label>
                     <input 
                         type="text"
                         name="username"
+                        placeholder="Username"
                         className=""
                     />
 
-                    <label htmlFor="password">Password:</label>
                     <input 
                         type="text"
                         name="password"
+                        placeholder="Password"
                         className=""
                     />
                 </div>
-                
 
-                <button type="submit">Sign Up</button>
+                <button 
+                    type="submit"
+                    className={profileStyles.signupBtn}
+                >
+                    Sign Up
+                </button>
             </form> 
         </div>
     )
