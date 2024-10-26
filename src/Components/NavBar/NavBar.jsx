@@ -4,7 +4,6 @@ import { useAuth } from '../../utils/useAuth'
 import '../../App.css'
 
 export const NavBar = () => {
-    console.log('is nav bar loading?')
     const { logout } = useAuth();
     const userData = JSON.parse(localStorage.getItem('user'))
     console.log('user in nav bar', userData)

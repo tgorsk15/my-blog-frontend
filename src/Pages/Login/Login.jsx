@@ -2,8 +2,9 @@ import { useNavigate } from "react-router-dom"
 import { getEnvVariable } from "../../utils/apiSetter"
 import { useState } from "react"
 import { useAuth } from "../../utils/useAuth"
+import PropTypes from "prop-types"
 
-export const Login = () => {
+export const Login = ({ changeUser }) => {
     const [loginError, setLoginError] = useState('')
     const navigate = useNavigate()
 
@@ -27,32 +28,26 @@ export const Login = () => {
 
         try {
             const apiUrl = getEnvVariable()
-            console.log(apiUrl)
             const response = await fetch(`${apiUrl}/user/login`, options)
             const data = await response.json()
-            console.log('user data', data.user)
 
             if (!response.ok) {
                 console.log('not ok')
-                // throw new Error('Request failed');
                 setLoginError(data.msg)
             } else {
                 // trigger login with context provider
-                login(data)
-
-                // navigate to home from here
-                navigate("/Home")
+                const newUser = await login(data)
+                // this will re-render App, and bring user to Home on Login
+                setTimeout(() => {
+                    changeUser(newUser)
+                }, 1200)
+                navigate("/home")
             }
             
 
         } catch(error) {
-            console.error('hitting error in login?')
-            console.log(error)
+            console.error('hitting error in login:', error)
         }
-
-            // need to somehow check when token runs out and then remove
-            // the token info from localStorage
-
     }
 
     return (
@@ -85,4 +80,8 @@ export const Login = () => {
         </div>
         
     )
+}
+
+Login.propTypes = {
+    changeUser: PropTypes.func,
 }

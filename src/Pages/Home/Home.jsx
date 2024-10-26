@@ -7,23 +7,11 @@ import { BlogItem } from "../../Components/BlogItem/BlogItem"
 import homeStyles from "./home.module.css"
 
 export const Home = () => {
-    console.log('is this loading?')
     const postsList = useLoaderData()
-    
-    // call isExpired() function here
-    // ... if expired, maybe just pull the logout()
-    // function from useAuth, and then call it to kick user out
-
     const { logout } = useAuth()
     const token = localStorage.getItem('token')
     const userData = JSON.parse(localStorage.getItem('user'))
     console.log('user and token info:', userData, token)
-
-    // if token is expired, log user out:
-    // const tokenExp = isTokenExpired(token)
-    // if (tokenExp) {
-    //     logout()
-    // }
 
     return (
         <div>
@@ -47,3 +35,6 @@ export const Home = () => {
         </div>
     )
 }
+
+// TMW 10/25: reverse this madness and put the router system back into the <App> component.
+// I'll just have to live with doing a window refresh upon login in the AuthContext

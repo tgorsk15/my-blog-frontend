@@ -48,6 +48,7 @@ export const getPublicPosts = async ({ logout }) => {
     
     const tokenExp = isTokenExpired(token)
     if (tokenExp) {
+        console.log('tokrn is expired')
         logout()
         return redirect('/profile/login')
     }

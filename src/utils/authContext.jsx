@@ -1,6 +1,9 @@
 import { createContext } from "react";
 import { useState } from "react";
+import { redirect } from "react-router-dom";
 import PropTypes from "prop-types"
+
+
 
 
 export const AuthContext = createContext()
@@ -12,11 +15,11 @@ export const AuthContextProvider = ({ children }) => {
     const login = (data) => {
         setUserData(data.user);
         setToken(data.token);
-        console.log('expiration time:', data.expiresIn)
         // save to localStorage:
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
         console.log('user in Auth:', JSON.parse(localStorage.getItem('user')))
+        return data.user
     };
 
     const logout = () => {
@@ -25,11 +28,11 @@ export const AuthContextProvider = ({ children }) => {
         // remove old token:
         localStorage.removeItem('token');
         localStorage.removeItem('user')
+        // redirect('/home')
     };
 
     return (
         <AuthContext.Provider value={{ userData, token, login, logout }}>
-        {/* </AuthContext.Provider><AuthContext.Provider value={{ login, logout }}> */}
             {children}
         </AuthContext.Provider>
     );

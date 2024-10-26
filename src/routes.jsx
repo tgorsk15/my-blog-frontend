@@ -1,7 +1,4 @@
-import { useState, useMemo } from 'react'
-import './App.css'
-import { createBrowserRouter, RouterProvider, Navigate, redirect } from 'react-router-dom';
-import { createRoutes } from './routes';
+import { Navigate, redirect } from 'react-router-dom';
 import { useAuth } from './utils/useAuth';
 
 import { Root } from './Pages/Root/Root'
@@ -17,35 +14,9 @@ import { EditBlog } from './Pages/EditBlog/EditBlog';
 
 import { getPublicPosts, getSinglePost, getAllPosts } from './utils/loaders';
 
-// function AppRoutes() {
-  
-//   const routes = createRoutes(userData, logout);
-//   return useRoutes(routes)
-// }
 
-
-function App() {
-  const { logout, userData } = useAuth();
-  const [currentUser, changeUser] = useState(userData)
-
-  // const router = useMemo(() => 
-  //   createBrowserRouter(createRoutes(userData, logout)),
-  //   [userData, logout]
-  // );
-
-  // return (
-  //   <>
-  //     <RouterProvider router={router} />
-  //   </>
-  // )
-
-  // const { logout, userData } = useAuth();
-  // // const userData = JSON.parse(localStorage.getItem('user'))
-  // console.log('user data in App:', userData)
-
-  console.log('re-rendering App')
-  const routes = [
-    {
+export const createRoutes = (userData, logout) => [
+  {
       path: "/",
       element: <Root />,
       id: "root",
@@ -53,10 +24,7 @@ function App() {
       children: [
         {
           index: true, 
-          element: currentUser ? <Navigate to="/home" replace /> : <Navigate to="/profile" replace />
-          // loader: () => {
-          //   return currentUser ? redirect('/home') : redirect('/profile')
-          // }
+          element: userData ? <Navigate to="/home" replace /> : <Navigate to="/profile" replace />
         },
         {
           path: "profile",
@@ -66,9 +34,7 @@ function App() {
           children: [
             {
               path: "login",
-              element: <Login 
-                changeUser={changeUser}
-              />,
+              element: <Login />,
             },
             {
               path: "signup",
@@ -103,17 +69,4 @@ function App() {
         }
       ]
     }
-    
-  ]
-  const router = createBrowserRouter(routes)
-
-  return (
-  <>
-    <RouterProvider router={router} />
-  </>
-  )
-
-  
-}
-
-export default App
+]
