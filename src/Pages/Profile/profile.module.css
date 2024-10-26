@@ -1,5 +1,4 @@
-/* left off here:  style login screen further (maybe even style
-signup page too. And then look up how to create a 
+/* left off here:  look up how to create a 
 simple loader circle/animation */
 
 /* Profile Component */
@@ -18,4 +17,37 @@ simple loader circle/animation */
 
 .userOptionsContainer > p {
     font-weight: bold;
+}
+
+
+/* Login Component */
+.signinTitle {
+    margin-top: 0px;
+}
+
+.loginSection {
+    display: flex;
+    justify-content: center;
+}
+
+.loginForm {
+    width: fit-content;
+    margin: 30px 0px;
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.usernameSection, .passwordSection {
+    margin-top: 20px;
+}
+
+.usernameSection > input, .passwordSection > input {
+    padding: 4px;
+    font-size: 22px;
+}
+
+.loginBtn {
+    margin-top: 25px;
+    width: 100%;
 }

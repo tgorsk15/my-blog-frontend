@@ -4,6 +4,8 @@ import { useState } from "react"
 import { useAuth } from "../../utils/useAuth"
 import PropTypes from "prop-types"
 
+import profileStyles from "../Profile/profile.module.css"
+
 export const Login = ({ changeUser }) => {
     const [loginError, setLoginError] = useState('')
     const navigate = useNavigate()
@@ -54,7 +56,7 @@ export const Login = ({ changeUser }) => {
     }
 
     return (
-        <div>
+        <div className={profileStyles.loginSection}>
             {loginError !== '' && (
                 <div>
                     <h3>
@@ -63,22 +65,31 @@ export const Login = ({ changeUser }) => {
                 </div>
             )}
 
-           <form onSubmit={handleLogIn}>
-                <label htmlFor="username">Username:</label>
-                <input 
-                    type="text"
-                    name="username"
-                    className=""
-                />
+            <form onSubmit={handleLogIn} className={profileStyles.loginForm}>
+                <h2 className={profileStyles.signinTitle}>Sign In</h2>
+                <div className={profileStyles.usernameSection}>
+                    <input 
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        className=""
+                    />
+                </div>
+                <div className={profileStyles.passwordSection}>
+                    <input 
+                        type="text"
+                        name="password"
+                        placeholder="Password"
+                        className=""
+                    />
+                </div>
 
-                <label htmlFor="password">Password:</label>
-                <input 
-                    type="text"
-                    name="password"
-                    className=""
-                />
-
-                <button type="submit">Log In</button>
+                <button 
+                    type="submit" 
+                    className={profileStyles.loginBtn}
+                >
+                    Log In
+                </button>
             </form> 
         </div>
         

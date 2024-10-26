@@ -20,10 +20,6 @@ export const Profile = () => {
             <Outlet context={{
                 handlePageChange
             }}/>         
-                {/* <h4>
-                    <Link to='/profile/login'>Sign in </Link>
-                </h4> 
-                <p>or</p> */}
                 {onLogin ? (
                     <div className={profileStyles.userOptionsContainer}>
                         <h4>Need an Account?</h4>
