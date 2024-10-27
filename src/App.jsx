@@ -30,7 +30,7 @@ function App() {
       children: [
         {
           index: true, 
-          element: currentUser ? <Navigate to="/home" replace /> : <Navigate to="/profile" replace />
+          element: currentUser ? <Navigate to="/home" replace /> : <Navigate to="/profile/login" replace />
         },
         {
           path: "profile",

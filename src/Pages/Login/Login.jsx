@@ -11,12 +11,13 @@ export const Login = ({ changeUser }) => {
     const navigate = useNavigate()
 
     const { login } = useAuth()
-    const { handlePageChange } = useOutletContext()
+    const { handlePageChange, isLoading, setLoading } = useOutletContext()
 
     handlePageChange(true)
 
     async function handleLogIn(e) {
         e.preventDefault()
+        setLoading(true)
 
         const formData = new FormData(e.target);
         const username = formData.get('username')
@@ -45,7 +46,7 @@ export const Login = ({ changeUser }) => {
                 // this will re-render App, and bring user to Home on Login
                 setTimeout(() => {
                     changeUser(newUser)
-                }, 1200)
+                }, 1400)
                 navigate("/home")
             }
             
@@ -65,7 +66,9 @@ export const Login = ({ changeUser }) => {
                 </div>
             )}
 
-            <form onSubmit={handleLogIn} className={profileStyles.loginForm}>
+            <form 
+                onSubmit={handleLogIn} 
+                className={`${profileStyles.loginForm} ${isLoading ? profileStyles.submitted : ''}`}>
                 <h2 className={profileStyles.signinTitle}>Sign In</h2>
                 <div className={profileStyles.usernameSection}>
                     <input 
@@ -83,7 +86,14 @@ export const Login = ({ changeUser }) => {
                         className=""
                     />
                 </div>
+                {isLoading && (
+                    <div className={profileStyles.spinnerContainer}>
+                        <div className={profileStyles.loadSpinner}>
 
+                        </div>    
+                    </div>    
+                )}
+                
                 <button 
                     type="submit" 
                     className={profileStyles.loginBtn}

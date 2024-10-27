@@ -28,7 +28,7 @@ export const AuthContextProvider = ({ children }) => {
         // remove old token:
         localStorage.removeItem('token');
         localStorage.removeItem('user')
-        // redirect('/home')
+        redirect('/profile/login')
     };
 
     return (

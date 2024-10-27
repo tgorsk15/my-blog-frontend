@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../utils/useAuth'
 
 import '../../App.css'
@@ -7,9 +7,11 @@ export const NavBar = () => {
     const { logout } = useAuth();
     const userData = JSON.parse(localStorage.getItem('user'))
     console.log('user in nav bar', userData)
+    const navigate = useNavigate()
 
-    function handleLogout() {
-        logout()
+    async function handleLogout() {
+        await logout()
+        // navigate("/profile/login")
     }
 
 
@@ -41,7 +43,7 @@ export const NavBar = () => {
                                     User Info
                                 </li>
                                 <li className='user-logout-li'>
-                                    <Link to="/profile" onClick={handleLogout}>Logout</Link>
+                                    <Link to="/profile/login" onClick={handleLogout}>Logout</Link>
                                 </li>
                             </div>
 
@@ -49,7 +51,7 @@ export const NavBar = () => {
                     
                     ) : (
                         <li>
-                            <Link to="/profile">Log In</Link>
+                            <Link to="/profile/login">Log In</Link>
                         </li>
                     )}
                      
@@ -60,3 +62,6 @@ export const NavBar = () => {
         </nav>
     )
 }
+
+// left off here: look at Claude'response and 
+// modify some things to see if this fixes the issue

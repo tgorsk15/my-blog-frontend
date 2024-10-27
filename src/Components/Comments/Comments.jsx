@@ -51,13 +51,11 @@ export const Comments = ({ post, handlePostChange,
         }
     }
 
-    function handleAddClick(e) {
+    function handleAddClick() {
         console.log('adding comment')
         if (boxVisible) {
-            // e.target.textContent = 'Add a Comment'
             setVisible(false)
         } else if (!boxVisible) {
-            // e.target.textContent = 'X Cancel'
             setVisible(true)
         }
     }

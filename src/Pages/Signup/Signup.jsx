@@ -8,11 +8,14 @@ export const SignUp = () => {
     const [signupError, setSignupError] = useState('')
     const navigate = useNavigate()
 
-    const { handlePageChange } = useOutletContext()
+    const { handlePageChange, isLoading, setLoading } = useOutletContext()
     handlePageChange(false)
+    
 
     async function handleSignup(e) {
         e.preventDefault()
+        setLoading(true)
+
         const formData = new FormData(e.target);
         const firstName = formData.get('firstName')
         const lastName = formData.get('lastName')
@@ -44,7 +47,8 @@ export const SignUp = () => {
 
             } else {
                 // navigate to profile page from here
-                navigate("/profile")
+                setLoading(false)
+                navigate("/profile/login")
             }
 
         } catch(err) {
@@ -98,6 +102,14 @@ export const SignUp = () => {
                         className=""
                     />
                 </div>
+
+                {isLoading && (
+                    <div className={profileStyles.spinnerContainer}>
+                        <div className={profileStyles.loadSpinner}>
+
+                        </div>    
+                    </div>    
+                )}
 
                 <button 
                     type="submit"
