@@ -15,11 +15,13 @@
 .links-container {
   display: flex;
   margin-right: 20px;
+  align-items: center;
 }
 
 .nav-links {
   display: flex;
   gap: 25px;
+  align-items: center;
 }
 
 .nav-links > li {
@@ -39,6 +41,9 @@
 
 .dropdown-section {
   position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .profile-btn {
@@ -64,6 +69,7 @@
 .dropdown-container {
   display: none;
   position: absolute;
+  top: 25px;
   right: 0px;
   background-color: rgb(242, 236, 236);
   border-radius: 5px;

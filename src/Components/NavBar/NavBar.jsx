@@ -17,10 +17,11 @@ export const NavBar = () => {
 
     return (
         <nav className='navbar-section'>
-            {userData && userData.isAuthor === true && (
-                <h2>Hi {userData.firstName}</h2>
-            )}
+            <h2>Tgorsk's Blog</h2>
             <div className='links-container'>
+                {userData && userData.isAuthor === true && (
+                    <h2>Hi {userData.firstName}</h2>
+                )}
                 <ul className='nav-links'>
                     {userData && (
                         <li>

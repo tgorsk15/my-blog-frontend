@@ -46,7 +46,7 @@ export const Login = ({ changeUser }) => {
                 // this will re-render App, and bring user to Home on Login
                 setTimeout(() => {
                     changeUser(newUser)
-                }, 1400)
+                }, 1500)
                 navigate("/home")
             }
             
