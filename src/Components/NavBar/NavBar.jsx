@@ -31,8 +31,9 @@ export const NavBar = () => {
                 {navLoading && (
                     <div className='spinner-container'>
                         <div className='load-spinner'>
+
                         </div>    
-                    </div>
+                    </div> 
                 )}
                 {userData && userData.isAuthor === true && (
                     <h2>Hi {userData.firstName}</h2>

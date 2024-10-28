@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import PropTypes from "prop-types"
 import { getEnvVariable } from "../../utils/apiSetter"
 
 import dashStyles from "../../Pages/BlogDash/blogDash.module.css"
 
-export const PostList = ({ activeList, handleListChange }) => {
-
+export const PostList = ({ activeList, handleListChange, setDashLoading }) => {
+    // left off here... need to pass loading state down, and everything should be
+    // ready with handleNavigate so that I can set loading state in there
+    const navigate = useNavigate();
 
     async function handlePublish(e) {
         console.log('getting published?')
@@ -19,7 +21,6 @@ export const PostList = ({ activeList, handleListChange }) => {
         } else if (buttonText === 'Un-Publish') {
             pblcBoolean = false
         }
-
 
         const token = localStorage.getItem('token')
         const options = {
@@ -43,7 +44,14 @@ export const PostList = ({ activeList, handleListChange }) => {
         } catch(err) {
             console.log(err)
         }
+    }
 
+    function handleNavigate(path) {
+        setDashLoading(true)
+        navigate(path)
+        setTimeout(() => {
+            setDashLoading(false)
+        }, 600)
     }
 
     return (
@@ -57,12 +65,22 @@ export const PostList = ({ activeList, handleListChange }) => {
                             <h4>{post.createdAt}</h4>
                         </div>
                         <div className={dashStyles.postActions}>
-                            <Link to={`/viewBlog/${post.id}`}>
+                            {/* <Link to={`/viewBlog/${post.id}`}>
                                 View
-                            </Link>
-                            <Link to={`/editBlog/${post.id}`}>
+                            </Link> */}
+                            {/* <Link to={`/editBlog/${post.id}`}>
                                 Edit
-                            </Link>
+                            </Link> */}
+                            <button
+                                onClick={() => handleNavigate(`/viewBlog/${post.id}`)}
+                            >
+                                View
+                            </button>
+                            <button
+                                onClick={() => handleNavigate(`/editBlog/${post.id}`)}
+                            >
+                                Edit
+                            </button>
                             {post.published === false && (
                                 <button 
                                     onClick={handlePublish}

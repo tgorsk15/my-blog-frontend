@@ -16,6 +16,7 @@ export const BlogDash = () => {
     )
     const [activeList, setActive] = useState(publicPosts)
     const [activeType, setType] = useState("public")
+    const [dashLoading, setDashLoading] = useState(false);
 
     function handleSwitch(e) {
         // change state of what active list is being shown
@@ -49,13 +50,13 @@ export const BlogDash = () => {
 
     return (
         <div className={dashStyles.blogDashPage}>
-            {/* {pageLoading ? (
+            {dashLoading ? (
                 <div className={dashStyles.spinnerContainer}>
-                    <div className={Styles.loadSpinner}>
-                        Hi Im Loading
+                    <div className={dashStyles.loadSpinner}>
+
                     </div>    
                 </div>
-            ) : ( */}
+            ) : (
                 <>
                     <section className={dashStyles.postsSection}>
                         <h1>My Posts</h1>
@@ -72,6 +73,7 @@ export const BlogDash = () => {
                                 activeList = {activeList}
                                 setActive = {setActive}
                                 handleListChange = {handleListChange}
+                                setDashLoading = {setDashLoading}
                             />
                         </div>
                     </section>
@@ -90,9 +92,9 @@ export const BlogDash = () => {
                                 </Link>
                             </div>
                         </div>
-                    </section>
+                    </section>   
                 </>
-            {/* )} */}
+            )}
             
         </div>
     )

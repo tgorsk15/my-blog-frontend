@@ -12,7 +12,6 @@ export const getAllPosts = async ({ logout }) => {
         logout()
         return redirect('/profile/login')
     }
-    // await handleLoading()
 
     const options = {
         method: "GET",
