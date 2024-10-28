@@ -1,6 +1,3 @@
-/* left off here:  look up how to create a 
-simple loader circle/animation */
-
 /* Loader */
 @keyframes spin {
     from {
@@ -99,7 +96,14 @@ simple loader circle/animation */
 /* Signup Component */
 .signupSection {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.signupErrContainer > h3 {
+    /* min-height: 23px; */
+    margin-top: 0px;
 }
 
 .signupForm {
@@ -136,4 +140,12 @@ simple loader circle/animation */
 
 .signupBtn {
     margin-top: 30px;
+}
+
+.formErrContainer {
+    height: 120px;
+}
+
+.formErr {
+    text-align: left;
 }

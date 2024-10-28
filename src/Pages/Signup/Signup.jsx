@@ -45,6 +45,7 @@ export const SignUp = () => {
             console.log('response from sign up:', data)
 
             if (!response.ok) {
+                setLoading(false)
                 console.log('not ok')
                 setSignupError(data.msg)
                 if (data.errors) {
@@ -66,7 +67,7 @@ export const SignUp = () => {
     return (
         <div className={profileStyles.signupSection}>
             {signupError !== '' && (
-                <div>
+                <div className={profileStyles.signupErrContainer}>
                     <h3>
                         {signupError}
                     </h3>
