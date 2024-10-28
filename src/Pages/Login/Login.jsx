@@ -40,6 +40,7 @@ export const Login = ({ changeUser }) => {
             if (!response.ok) {
                 console.log('not ok')
                 setLoginError(data.msg)
+                setLoading(false)
             } else {
                 // trigger login with context provider
                 const newUser = await login(data)

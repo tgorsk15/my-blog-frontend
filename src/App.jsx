@@ -17,20 +17,9 @@ import { EditBlog } from './Pages/EditBlog/EditBlog';
 import { getPublicPosts, getSinglePost, getAllPosts } from './utils/loaders';
 
 function App() {
-  const { logout, userData, pageLoading, setPageLoading } = useAuth();
+  const { logout, userData } = useAuth();
   const [currentUser, changeUser] = useState(userData);
 
-
-  async function handleLoading() {
-    setPageLoading(true)
-      
-  }
-
-  async function handleDoneLoading() {
-    console.log('I am done')
-    setPageLoading(false)
-    return;
-  }
 
   console.log('re-rendering App')
   const routes = [
