@@ -59,7 +59,19 @@
 
 .loginSection {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.loginErrContainer {
+    height: 30px;
+    /* width: 100px; */
+    /* background-color: aqua; */
+}
+
+.loginErrMsg {
+    margin-top: 0px;
 }
 
 .loginForm {
@@ -70,12 +82,6 @@
     border-radius: 15px;
     transition: height 0.5s;
     transform-origin: top;
-}
-
-.submitted {
-    /* height: auto;
-    height: calc-size(auto); */
-    /* animation: expand 1s forwards; */
 }
 
 .usernameSection, .passwordSection {
@@ -91,6 +97,10 @@
     margin-top: 15px;
     width: 100%;
 }
+
+/* left off here:  need to reformat Login so that the error
+message pops up at the top... set parent container to a fixed
+height to prevent login box from being moved down on error load */
 
 
 /* Signup Component */

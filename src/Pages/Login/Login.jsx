@@ -59,13 +59,13 @@ export const Login = ({ changeUser }) => {
 
     return (
         <div className={profileStyles.loginSection}>
+<           div className={profileStyles.loginErrContainer}>
             {loginError !== '' && (
-                <div>
-                    <h3>
-                        {loginError}
-                    </h3>
-                </div>
+                <h3 className={profileStyles.loginErrMsg}>
+                    {loginError}
+                </h3>
             )}
+            </div>
 
             <form 
                 onSubmit={handleLogIn} 
