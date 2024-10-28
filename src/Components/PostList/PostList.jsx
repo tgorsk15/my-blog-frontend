@@ -8,6 +8,7 @@ export const PostList = ({ activeList, handleListChange }) => {
 
 
     async function handlePublish(e) {
+        console.log('getting published?')
         const postId = e.target.value
         console.log(postId)
         const buttonText = e.target.innerText

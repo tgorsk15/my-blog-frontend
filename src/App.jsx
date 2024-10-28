@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import './App.css'
 import { createBrowserRouter, RouterProvider, Navigate, redirect } from 'react-router-dom';
 import { useAuth } from './utils/useAuth';
@@ -17,8 +17,20 @@ import { EditBlog } from './Pages/EditBlog/EditBlog';
 import { getPublicPosts, getSinglePost, getAllPosts } from './utils/loaders';
 
 function App() {
-  const { logout, userData } = useAuth();
-  const [currentUser, changeUser] = useState(userData)
+  const { logout, userData, pageLoading, setPageLoading } = useAuth();
+  const [currentUser, changeUser] = useState(userData);
+
+
+  async function handleLoading() {
+    setPageLoading(true)
+      
+  }
+
+  async function handleDoneLoading() {
+    console.log('I am done')
+    setPageLoading(false)
+    return;
+  }
 
   console.log('re-rendering App')
   const routes = [

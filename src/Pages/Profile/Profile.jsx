@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Outlet, Link, useOutletContext } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import profileStyles from "./profile.module.css";
 
 export const Profile = () => {
-    const { setToken } = useOutletContext()
     const [onLogin, setLogin] = useState(true)
     const [isLoading, setLoading] = useState(false)
     

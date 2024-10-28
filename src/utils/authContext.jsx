@@ -11,6 +11,7 @@ export const AuthContext = createContext()
 export const AuthContextProvider = ({ children }) => {
     const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('user')));
     const [token, setToken] = useState(localStorage.getItem('token'));
+    const [pageLoading, setPageLoading] = useState(false)
 
     const login = (data) => {
         setUserData(data.user);
@@ -18,7 +19,7 @@ export const AuthContextProvider = ({ children }) => {
         // save to localStorage:
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
-        console.log('user in Auth:', JSON.parse(localStorage.getItem('user')))
+        // console.log('user in Auth:', JSON.parse(localStorage.getItem('user')))
         return data.user
     };
 
@@ -32,7 +33,9 @@ export const AuthContextProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ userData, token, login, logout }}>
+        <AuthContext.Provider 
+            value={{ userData, token, login, logout, pageLoading, setPageLoading }}
+        >
             {children}
         </AuthContext.Provider>
     );

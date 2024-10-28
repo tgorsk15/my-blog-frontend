@@ -4,7 +4,7 @@ import { useAuth } from '../../utils/useAuth'
 import '../../App.css'
 
 export const NavBar = () => {
-    const { logout } = useAuth();
+    const { logout, pageLoading, setPageLoading } = useAuth();
     const userData = JSON.parse(localStorage.getItem('user'))
     console.log('user in nav bar', userData)
     const navigate = useNavigate()
@@ -12,6 +12,21 @@ export const NavBar = () => {
     async function handleLogout() {
         await logout()
         // navigate("/profile/login")
+    }
+
+    async function handleHomeClick() {
+        // setPageLoading(true)
+        // navigate("/home")
+        // setPageLoading(false)
+    }
+
+    async function handleHubClick() {
+        // setPageLoading(true)
+        
+        // setTimeout(() => {
+        //     setPageLoading(false)
+        // }, 1000)
+        // navigate("/blogDash")
     }
 
 
@@ -30,6 +45,7 @@ export const NavBar = () => {
                     )}
                     {userData && userData.isAuthor && (
                         <li>
+                            {/* <Link to="/blogDash">Author Hub</Link> */}
                             <Link to="/blogDash">Author Hub</Link>
                         </li>
                     )}

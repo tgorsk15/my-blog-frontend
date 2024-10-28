@@ -12,8 +12,8 @@ export const getAllPosts = async ({ logout }) => {
         logout()
         return redirect('/profile/login')
     }
+    // await handleLoading()
 
-    
     console.log('token', token)
     const options = {
         method: "GET",
@@ -27,13 +27,17 @@ export const getAllPosts = async ({ logout }) => {
         
         if (!response.ok) {
             console.log('not ok')
+            // await handleDoneLoading()
             return null
-        } else {
+        } 
+        else {
             const posts = data.posts
             posts.map((post) => {
                 const formattedDate = formatDate(post.createdAt)
                 post.createdAt = formattedDate
             })
+            console.log('done loading')
+            // await handleDoneLoading()
             return posts
         }
 
@@ -168,12 +172,3 @@ export const getSinglePostById = async (postId) => {
         console.log(err)
     }
 }
-
-
-// old method for isTokenExpired check:
-// const tokenExp = isTokenExpired(token)
-// if (tokenExp) {
-//     localStorage.removeItem('token');  // Clear token
-//     localStorage.removeItem('user');   // Clear user data
-//     return redirect('/profile/login')
-// }
