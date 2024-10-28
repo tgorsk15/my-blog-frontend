@@ -8,7 +8,7 @@ import dashStyles from "./blogDash.module.css"
 
 export const BlogDash = () => {
     const initialAllPosts = useLoaderData()
-    const { pageLoading } = useAuth()
+    const { logout } = useAuth()
 
     const [allPosts, setAllPosts] = useState(initialAllPosts)
     const [publicPosts, setPublicPosts] = useState(() => 
@@ -32,7 +32,8 @@ export const BlogDash = () => {
     async function handleListChange() {
         // gather new list of posts
         // then filter this to get new public posts list
-        const newList = await getAllPosts();
+        // this logout has no purpose, just have it as a placeholder:
+        const newList = await getAllPosts({ logout });
         const filteredPosts = newList.filter(post => post.published === true)
         setAllPosts(newList);
         setPublicPosts(filteredPosts)
@@ -48,13 +49,13 @@ export const BlogDash = () => {
 
     return (
         <div className={dashStyles.blogDashPage}>
-            {pageLoading ? (
+            {/* {pageLoading ? (
                 <div className={dashStyles.spinnerContainer}>
                     <div className={Styles.loadSpinner}>
                         Hi Im Loading
                     </div>    
                 </div>
-            ) : (
+            ) : ( */}
                 <>
                     <section className={dashStyles.postsSection}>
                         <h1>My Posts</h1>
@@ -91,7 +92,7 @@ export const BlogDash = () => {
                         </div>
                     </section>
                 </>
-            )}
+            {/* )} */}
             
         </div>
     )

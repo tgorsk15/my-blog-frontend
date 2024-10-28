@@ -26,7 +26,6 @@ export const getAllPosts = async ({ logout }) => {
         
         if (!response.ok) {
             console.log('not ok')
-            // await handleDoneLoading()
             return null
         } 
         else {
@@ -35,8 +34,6 @@ export const getAllPosts = async ({ logout }) => {
                 const formattedDate = formatDate(post.createdAt)
                 post.createdAt = formattedDate
             })
-            // console.log('done loading')
-            // await handleDoneLoading()
             return posts
         }
 
