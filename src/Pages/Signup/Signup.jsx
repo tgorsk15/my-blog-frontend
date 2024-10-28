@@ -1,11 +1,13 @@
 import { useState } from "react"
 import { useNavigate, useOutletContext } from "react-router-dom"
 import { getEnvVariable } from "../../utils/apiSetter"
+import { FormError } from "../../Components/FormError/FormError"
 
 import profileStyles from "../Profile/profile.module.css"
 
 export const SignUp = () => {
     const [signupError, setSignupError] = useState('')
+    const [infoErrors, setInfoErrors] = useState([])
     const navigate = useNavigate()
 
     const { handlePageChange, isLoading, setLoading } = useOutletContext()
@@ -15,6 +17,7 @@ export const SignUp = () => {
     async function handleSignup(e) {
         e.preventDefault()
         setLoading(true)
+        setInfoErrors([])
 
         const formData = new FormData(e.target);
         const firstName = formData.get('firstName')
@@ -44,6 +47,10 @@ export const SignUp = () => {
             if (!response.ok) {
                 console.log('not ok')
                 setSignupError(data.msg)
+                if (data.errors) {
+                    console.log('setting form errors', data.errors)
+                    setInfoErrors(data.errors)
+                }
 
             } else {
                 // navigate to profile page from here
@@ -73,12 +80,14 @@ export const SignUp = () => {
                         type="text" 
                         name="firstName"
                         placeholder="First Name"
+                        required
                     />
 
                     <input 
                         type="text" 
                         name="lastName"
                         placeholder="Last Name"
+                        required
                     />
                 </div>
                 <div className={profileStyles.userInfoContainer}>
@@ -86,6 +95,7 @@ export const SignUp = () => {
                         type="email"
                         name="userEmail"
                         placeholder="Email"
+                        required
                     />
 
                     <input 
@@ -93,6 +103,7 @@ export const SignUp = () => {
                         name="username"
                         placeholder="Username"
                         className=""
+                        required
                     />
 
                     <input 
@@ -100,6 +111,7 @@ export const SignUp = () => {
                         name="password"
                         placeholder="Password"
                         className=""
+                        required
                     />
                 </div>
 
@@ -117,7 +129,12 @@ export const SignUp = () => {
                 >
                     Sign Up
                 </button>
-            </form> 
+            </form>
+            {infoErrors.length > 0 && (
+                <FormError
+                    infoErrors= {infoErrors}
+                />
+            )} 
         </div>
     )
 }

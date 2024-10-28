@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useAuth } from "../../utils/useAuth";
 import { getEnvVariable } from "../../utils/apiSetter"
-import PropTypes, { object } from "prop-types"
+import PropTypes from "prop-types"
 
 import viewStyles from "../../Pages/Blog/blogView.module.css"
 import { Feedback } from "./CmtFeedback";
