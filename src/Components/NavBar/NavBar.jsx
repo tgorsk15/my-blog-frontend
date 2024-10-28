@@ -2,31 +2,25 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../utils/useAuth'
 
 import '../../App.css'
+import { useState } from 'react';
 
 export const NavBar = () => {
-    const { logout, pageLoading, setPageLoading } = useAuth();
+    const { logout, } = useAuth();
     const userData = JSON.parse(localStorage.getItem('user'))
     console.log('user in nav bar', userData)
     const navigate = useNavigate()
+    const [navLoading, setLoading] = useState(false)
 
     async function handleLogout() {
         await logout()
-        // navigate("/profile/login")
     }
 
-    async function handleHomeClick() {
-        // setPageLoading(true)
-        // navigate("/home")
-        // setPageLoading(false)
-    }
-
-    async function handleHubClick() {
-        // setPageLoading(true)
-        
-        // setTimeout(() => {
-        //     setPageLoading(false)
-        // }, 1000)
-        // navigate("/blogDash")
+    async function handleNavigate(path) {
+        setLoading(true)
+        navigate(path)
+        setTimeout(() => {
+            setLoading(false)
+        }, 500)
     }
 
 
@@ -34,19 +28,39 @@ export const NavBar = () => {
         <nav className='navbar-section'>
             <h2>Tgorsk's Blog</h2>
             <div className='links-container'>
+                {navLoading && (
+                    <div className='spinner-container'>
+                        <div className='load-spinner'>
+                        </div>    
+                    </div>
+                )}
                 {userData && userData.isAuthor === true && (
                     <h2>Hi {userData.firstName}</h2>
                 )}
                 <ul className='nav-links'>
+                    
                     {userData && (
                         <li>
-                            <Link to="/home">Home</Link>
+                        {/* <Link to="/home">Home</Link> */}
+                            <button
+                                className='home-link-btn'
+                                onClick={() => handleNavigate('/home')}
+                            >
+                                Home
+                            </button>
                         </li>
                     )}
                     {userData && userData.isAuthor && (
                         <li>
                             {/* <Link to="/blogDash">Author Hub</Link> */}
-                            <Link to="/blogDash">Author Hub</Link>
+                            {/* <Link to="/blogDash">Author Hub</Link> */}
+                        
+                            <button
+                                className='hub-link-btn'
+                                onClick={() => handleNavigate('/blogDash')}
+                            >
+                                Author Hub
+                            </button>
                         </li>
                     )}
                     {userData ? (
@@ -79,6 +93,3 @@ export const NavBar = () => {
         </nav>
     )
 }
-
-// left off here: look at Claude'response and 
-// modify some things to see if this fixes the issue

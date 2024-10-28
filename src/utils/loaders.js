@@ -14,7 +14,6 @@ export const getAllPosts = async ({ logout }) => {
     }
     // await handleLoading()
 
-    console.log('token', token)
     const options = {
         method: "GET",
         headers: {"Content-Type": "application/json", "Authorization": token},
@@ -36,7 +35,7 @@ export const getAllPosts = async ({ logout }) => {
                 const formattedDate = formatDate(post.createdAt)
                 post.createdAt = formattedDate
             })
-            console.log('done loading')
+            // console.log('done loading')
             // await handleDoneLoading()
             return posts
         }
@@ -56,8 +55,6 @@ export const getPublicPosts = async ({ logout }) => {
         logout()
         return redirect('/profile/login')
     }
-
-    console.log('token', token)
 
     const options = {
         method: "GET",
@@ -107,7 +104,6 @@ export const getSinglePost = async ({ params, logout }) => {
     const { postId } = params
     console.log('chosenId:', postId)
 
-    console.log(token)
     const options = {
         method: "GET",
         headers: {"Content-Type": "application/json", "Authorization": token},
@@ -147,7 +143,6 @@ export const getSinglePostById = async (postId) => {
         method: "GET",
         headers: {"Content-Type": "application/json", "Authorization": token},
     }
-
 
     try {
         const apiUrl = getEnvVariable()
