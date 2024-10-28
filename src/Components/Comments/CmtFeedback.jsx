@@ -1,9 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import PropTypes from "prop-types"
 
 import viewStyles from "../../Pages/Blog/blogView.module.css"
 
 export const Feedback = ({comment, handleLike, handleDislike}) => {
+    const [buttonLoading, setLoading] = useState(false)
     const likeRef = useRef(false);
     const unlikeRef = useRef(false);
 
@@ -41,8 +42,22 @@ export const Feedback = ({comment, handleLike, handleDislike}) => {
         }
     }
 
+    function handleButtonLoad() {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false)
+        }, 600)
+    }
+
     return (
         <div className={viewStyles.feedbackBox}>
+            {buttonLoading && (
+                <div className={viewStyles.spinnerContainer}>
+                    <div className={viewStyles.loadSpinner}>
+
+                    </div>    
+                </div>
+            )}
             <button 
                 className={viewStyles.likeBtn}
                 
@@ -50,6 +65,7 @@ export const Feedback = ({comment, handleLike, handleDislike}) => {
                     const btn = e.currentTarget;
                     btn.disabled = true;
                     handleButtonClick(comment.likes, comment.id, ACTIONS.LIKE, btn)
+                    handleButtonLoad();
                     setTimeout(() => {
                         btn.disabled = false
                     }, 1000)
@@ -66,6 +82,7 @@ export const Feedback = ({comment, handleLike, handleDislike}) => {
                     const btn = e.currentTarget;
                     btn.disabled = true;
                     handleButtonClick(comment.likes, comment.id, ACTIONS.DISLIKE, btn)
+                    handleButtonLoad();
                     setTimeout(() => {
                         btn.disabled = false
                     }, 1000)

@@ -109,7 +109,6 @@ export const Comments = ({ post, handlePostChange,
     return (
         <div className={viewStyles.commentsContainer}>
             <div className={viewStyles.commentsList}>
-                {/* put conditional here for when there is no comments */}
                 {/* map through comments list */}
                 {commentList.length > 0 ? (
                     commentList.map((comment) => {

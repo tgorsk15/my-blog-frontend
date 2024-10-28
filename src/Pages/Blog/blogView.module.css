@@ -16,7 +16,6 @@
 
 
 
-
 /* comments section */
 .commentSection {
     width: 55vw;
@@ -30,7 +29,6 @@
 }
 
 .commentsContainer {
-    /* background-color: rgb(238, 182, 133); */
     display: flex;
     flex-direction: column;
 }
@@ -40,7 +38,6 @@
 }
 
 .commentContainer {
-    /* background-color: lightgoldenrodyellow; */
     background: rgb(178,217,228);
     background: linear-gradient(150deg, rgba(178,217,228,1) 35%, rgba(145,231,249,1) 100%);
     width: 80%;
@@ -85,6 +82,8 @@
     
 }
 
+
+/* feedback section */
 .feedbackBox > button {
     display: flex;
     justify-content: center;
@@ -131,8 +130,46 @@
     color: orange;
 }
 
+/* feedback loading */
+@keyframes rotate {
+    100%   {transform: rotate(360deg)}
+}
+  
+@keyframes prixClipFix {
+    0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+    25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+    50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+    75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+    100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+}
+
+.spinnerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 6px;
+}
+
+.loadSpinner {
+    height: 21px;
+    width: 21px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite;
+}
+
+.loadSpinner::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #e29898;
+    animation: prixClipFix 1s linear infinite ;
+}
 
 
+/* create comment */
 .createCommentContainer {
     display: flex;
     flex-direction: column;

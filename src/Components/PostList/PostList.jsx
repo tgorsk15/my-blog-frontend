@@ -65,12 +65,6 @@ export const PostList = ({ activeList, handleListChange, setDashLoading }) => {
                             <h4>{post.createdAt}</h4>
                         </div>
                         <div className={dashStyles.postActions}>
-                            {/* <Link to={`/viewBlog/${post.id}`}>
-                                View
-                            </Link> */}
-                            {/* <Link to={`/editBlog/${post.id}`}>
-                                Edit
-                            </Link> */}
                             <button
                                 onClick={() => handleNavigate(`/viewBlog/${post.id}`)}
                             >

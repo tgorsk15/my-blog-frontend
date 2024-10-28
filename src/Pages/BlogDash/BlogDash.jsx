@@ -31,8 +31,7 @@ export const BlogDash = () => {
     }
 
     async function handleListChange() {
-        // gather new list of posts
-        // then filter this to get new public posts list
+        // gather new list of posts, then filter to get new public posts list
         // this logout has no purpose, just have it as a placeholder:
         const newList = await getAllPosts({ logout });
         const filteredPosts = newList.filter(post => post.published === true)
