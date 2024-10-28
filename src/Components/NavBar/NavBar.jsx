@@ -41,7 +41,6 @@ export const NavBar = () => {
                     
                     {userData && (
                         <li>
-                        {/* <Link to="/home">Home</Link> */}
                             <button
                                 className='home-link-btn'
                                 onClick={() => handleNavigate('/home')}
@@ -52,9 +51,6 @@ export const NavBar = () => {
                     )}
                     {userData && userData.isAuthor && (
                         <li>
-                            {/* <Link to="/blogDash">Author Hub</Link> */}
-                            {/* <Link to="/blogDash">Author Hub</Link> */}
-                        
                             <button
                                 className='hub-link-btn'
                                 onClick={() => handleNavigate('/blogDash')}
