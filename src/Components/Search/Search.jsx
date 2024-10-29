@@ -12,6 +12,10 @@ export const Search = () => {
             console.log(searchQuery)
         }
 
+        function handleReset() {
+
+        }
+
         return (
             <div className={homeStyles.searchContainer}>
                 <h2>Search...</h2>
@@ -28,6 +32,12 @@ export const Search = () => {
                         <i className="fa-solid fa-angle-right"></i>
                     </button>
                 </form>
+                <button
+                    className={homeStyles.resetBtn}
+                    onClick={handleReset}
+                >
+                    Reset
+                </button>
             </div>
         )
 }
