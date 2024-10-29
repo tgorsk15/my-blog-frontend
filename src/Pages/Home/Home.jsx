@@ -15,6 +15,7 @@ export const Home = () => {
     const [activeList, setList] = useState(postsList)
     // loading is true when clicking All or latest below:
     const [homeLoading, setLoading] = useState(false)
+    const [isEmpty, setEmpty] = useState(false)
 
     function handleGetAll() {
         setList(postsList)
@@ -71,7 +72,10 @@ export const Home = () => {
                 <div className={homeStyles.rightSide}>
                     {/* this will contain search bar, author info */}
                     <Search
-                    
+                        postsList = {postsList}
+                        setLoading = {setLoading}
+                        setList = {setList}
+                        handleGetAll = {handleGetAll}
                     />
                     <div className={homeStyles.infoContainer}>
                         Hi I'm info

@@ -1,7 +1,13 @@
-
+import PropTypes from "prop-types"
 import homeStyles from "../../Pages/Home/home.module.css"
 
-export const Search = () => {
+export const Search = ({ postsList, setLoading, setList, handleGetAll }) => {
+
+        function filterByQuery(query) {
+            return [...postsList].filter(post => 
+                post.title.toLowerCase().includes(query.toLowerCase())
+            )
+        }
 
         function handleSearch(e) {
             e.preventDefault()
@@ -10,10 +16,13 @@ export const Search = () => {
             const formData = new FormData(e.target);
             const searchQuery = formData.get('searchQuery')
             console.log(searchQuery)
+            const results = filterByQuery(searchQuery)
+            console.log('new filtered list:', results)
         }
 
         function handleReset() {
-
+            // could call handleGetAll here
+            handleGetAll()
         }
 
         return (
@@ -36,8 +45,15 @@ export const Search = () => {
                     className={homeStyles.resetBtn}
                     onClick={handleReset}
                 >
-                    Reset
+                    Clear
                 </button>
             </div>
         )
+}
+
+Search.propTypes = {
+    postsList: PropTypes.array,
+    setLoading: PropTypes.func,
+    setList: PropTypes.func,
+    handleGetAll: PropTypes.func
 }
