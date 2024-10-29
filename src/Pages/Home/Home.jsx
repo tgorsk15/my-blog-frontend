@@ -9,8 +9,7 @@ import homeStyles from "./home.module.css"
 
 export const Home = () => {
     const postsList = useLoaderData()
-    // console.log('here is postsList:', postsList)
-    const { pageLoading } = useAuth()
+    // const { pageLoading } = useAuth()
     // const token = localStorage.getItem('token')
     // const userData = JSON.parse(localStorage.getItem('user'))
     const [activeList, setList] = useState(postsList)
@@ -23,11 +22,9 @@ export const Home = () => {
 
     function handleGetLatest() {
         const listCopy = activeList;
-        console.log('list being used:', listCopy)
-        console.log('gathering latest')
-        // ask CLaude how to sort the dates
         const latestPosts = sortPostsByDate(listCopy)
-        console.log(latestPosts)
+        setList(latestPosts)
+        console.log('updated active list', activeList)
     }
 
     // need to add sliding animations to the two buttons
