@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom"
-// import { useState } from "react"
+import { useState } from "react"
 import { useAuth } from "../../utils/useAuth"
 
 import { BlogItem } from "../../Components/BlogItem/BlogItem"
@@ -8,33 +8,47 @@ import homeStyles from "./home.module.css"
 
 export const Home = () => {
     const postsList = useLoaderData()
+    console.log('here is postsList:', postsList)
     const { pageLoading } = useAuth()
     // const token = localStorage.getItem('token')
     // const userData = JSON.parse(localStorage.getItem('user'))
+    const [activeList, setList] = useState(postsList)
+    // loading is true when clicking All or latest below:
+    const [homeLoading, setLoading] = useState(false)
+
+    function handleGetAll() {
+        setList(postsList)
+    }
+
+    function handleGetLatest() {
+        // ask CLaude how to sort the dates
+    }
 
     return (
-        // TMW 10/29: start building this page out
-        // on right side I will have search bar (include reset button),
-        // and Git/phone number info
-        // on left the user will be able to toggle between "All" and "Latest"
-        // will probably have to create a loading animation on switching between these two
         <section className={homeStyles.homePage}>
             <section className={homeStyles.topHomeSection}>
                 <h2>Check out My Posts</h2>
                 <div className={homeStyles.postSelectionBox}>
-                    <button className={homeStyles.defaultPostsBtn}>
+                    <button 
+                        className={homeStyles.defaultPostsBtn}
+                        onClick={handleGetAll}
+                    >
                         All Posts
                     </button>
-                    <button className={homeStyles.latestPostsBtn}>
+                    <button 
+                        className={homeStyles.latestPostsBtn}
+                        onClick={handleGetLatest}
+                    >
                         Latest Posts
                     </button>
                 </div>
             </section>
             <section className={homeStyles.bottomHomeSection}>
                 <div className={homeStyles.leftSide}>
+                    {/* put in another coniditional here for when loading */}
                     <div className={homeStyles.postsSection}>
-                        {postsList.length > 0 ? (
-                            postsList.map((post) => {
+                        {activeList.length > 0 ? (
+                            activeList.map((post) => {
                                 return (
                                     <BlogItem
                                         key ={post.id} 
