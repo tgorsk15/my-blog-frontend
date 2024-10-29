@@ -11,17 +11,16 @@ export const Search = ({ postsList, setLoading, setList, handleGetAll }) => {
 
         function handleSearch(e) {
             e.preventDefault()
-            // possibly set loading state here
 
             const formData = new FormData(e.target);
             const searchQuery = formData.get('searchQuery')
-            console.log(searchQuery)
             const results = filterByQuery(searchQuery)
             console.log('new filtered list:', results)
+            
+            setList(results)
         }
 
         function handleReset() {
-            // could call handleGetAll here
             handleGetAll()
         }
 

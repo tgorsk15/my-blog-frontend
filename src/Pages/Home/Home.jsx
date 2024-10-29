@@ -50,7 +50,6 @@ export const Home = () => {
             </section>
             <section className={homeStyles.bottomHomeSection}>
                 <div className={homeStyles.leftSide}>
-                    {/* put in another coniditional here for when in search state */}
                     <div className={homeStyles.postsSection}>
                         {activeList.length > 0 ? (
                             activeList.map((post) => {
@@ -65,7 +64,9 @@ export const Home = () => {
 
                             
                         ) : (
-                            <h2>There is nothing published currently</h2>
+                            <div className={homeStyles.emptyPosts}>
+                                <h1>No results were found</h1>
+                            </div>
                         )}
                     </div> 
                 </div>
