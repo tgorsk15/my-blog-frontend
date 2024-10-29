@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom"
 import { useState } from "react"
 import { useAuth } from "../../utils/useAuth"
+import { sortPostsByDate } from "../../utils/sortDates"
 
 import { BlogItem } from "../../Components/BlogItem/BlogItem"
 import { Search } from "../../Components/Search/Search"
@@ -8,7 +9,7 @@ import homeStyles from "./home.module.css"
 
 export const Home = () => {
     const postsList = useLoaderData()
-    console.log('here is postsList:', postsList)
+    // console.log('here is postsList:', postsList)
     const { pageLoading } = useAuth()
     // const token = localStorage.getItem('token')
     // const userData = JSON.parse(localStorage.getItem('user'))
@@ -21,9 +22,15 @@ export const Home = () => {
     }
 
     function handleGetLatest() {
+        const listCopy = activeList;
+        console.log('list being used:', listCopy)
+        console.log('gathering latest')
         // ask CLaude how to sort the dates
+        const latestPosts = sortPostsByDate(listCopy)
+        console.log(latestPosts)
     }
 
+    // need to add sliding animations to the two buttons
     return (
         <section className={homeStyles.homePage}>
             <section className={homeStyles.topHomeSection}>

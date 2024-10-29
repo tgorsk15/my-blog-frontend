@@ -30,6 +30,7 @@ export const getAllPosts = async ({ logout }) => {
         else {
             const posts = data.posts
             posts.map((post) => {
+                post.oldCreatedAt = post.createdAt
                 const formattedDate = formatDate(post.createdAt)
                 post.createdAt = formattedDate
             })
@@ -66,7 +67,6 @@ export const getPublicPosts = async ({ logout }) => {
 
         const response = await fetch(`${apiUrl}/post/viewAllPublished`, options)
         const data = await response.json()
-        // console.log(data)
         const posts = data.posts
 
         if (!response.ok) {
@@ -74,6 +74,9 @@ export const getPublicPosts = async ({ logout }) => {
             return null
         } else {
             posts.map((post) => {
+                // keep old format so that list can be easily sorted by date later on:
+                post.oldCreatedAt = post.createdAt
+                //
                 const formattedDate = formatDate(post.createdAt)
                 post.createdAt = formattedDate
             })

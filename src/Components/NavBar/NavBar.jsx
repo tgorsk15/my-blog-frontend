@@ -7,7 +7,6 @@ import { useState } from 'react';
 export const NavBar = () => {
     const { logout, } = useAuth();
     const userData = JSON.parse(localStorage.getItem('user'))
-    console.log('user in nav bar', userData)
     const navigate = useNavigate()
     const [navLoading, setLoading] = useState(false)
 
