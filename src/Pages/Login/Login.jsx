@@ -69,7 +69,8 @@ export const Login = ({ changeUser }) => {
 
             <form 
                 onSubmit={handleLogIn} 
-                className={`${profileStyles.loginForm} ${isLoading ? profileStyles.submitted : ''}`}>
+                className={`${profileStyles.loginForm} ${isLoading ? profileStyles.submitted : ''}`}
+            >
                 <h2 className={profileStyles.signinTitle}>Sign In</h2>
                 <div className={profileStyles.usernameSection}>
                     <input 

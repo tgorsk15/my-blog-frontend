@@ -49,7 +49,7 @@ export const Home = () => {
             </section>
             <section className={homeStyles.bottomHomeSection}>
                 <div className={homeStyles.leftSide}>
-                    {/* put in another coniditional here for when loading */}
+                    {/* put in another coniditional here for when in search state */}
                     <div className={homeStyles.postsSection}>
                         {activeList.length > 0 ? (
                             activeList.map((post) => {
