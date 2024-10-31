@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import homeStyles from "../../Pages/Home/home.module.css"
 
-export const Search = ({ postsList, setLoading, setList, handleGetAll }) => {
+export const Search = ({ postsList, setList, handleGetAll }) => {
 
         function filterByQuery(query) {
             return [...postsList].filter(post => 

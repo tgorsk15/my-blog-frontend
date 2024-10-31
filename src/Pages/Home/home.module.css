@@ -32,6 +32,15 @@
 }
 
 
+.emptyPosts > svg {
+    height: 100px;
+}
+
+.emptyPosts > h2 {
+    margin-top: 10px;
+}
+
+
 /* right side */
 .rightSide {
     background-color: greenyellow;
