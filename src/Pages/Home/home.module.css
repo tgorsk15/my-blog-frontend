@@ -49,7 +49,46 @@
 }
 
 
+/* search section */
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+}
 
+.searchTitle {
+    text-align: left;
+}
+
+.searchForm {
+    display: flex;
+    position: relative;
+    width: fit-content;
+    margin-bottom: 15px;
+    width: 70%;
+}
+
+#searchBar {
+    width: 100%;
+    padding: 7px;
+}
+
+.searchBtn {
+    position: absolute;
+    background: none;
+    padding: 0px;
+    top: 50%;
+    right: 7px;
+    transform: translateY(-50%);
+}
+
+.resetBtn {
+    width: 22%;
+    padding: 0px;
+    text-decoration: underline;
+    background: none;
+}
+
+/* infoSection */
 .contactTitle {
     text-align: left;
 }

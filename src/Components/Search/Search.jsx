@@ -13,7 +13,7 @@ export const Search = ({ postsList, setList, handleGetAll }) => {
             e.preventDefault()
 
             const formData = new FormData(e.target);
-            const searchQuery = formData.get('searchQuery')
+            const searchQuery = formData.get('searchBar')
             const results = filterByQuery(searchQuery)
             console.log('new filtered list:', results)
             
@@ -26,25 +26,31 @@ export const Search = ({ postsList, setList, handleGetAll }) => {
 
         return (
             <div className={homeStyles.searchContainer}>
-                <h2>Search...</h2>
-                <form onSubmit={handleSearch}>
+                <h2 className={homeStyles.searchTitle}>
+                    Search...
+                </h2>
+                <form 
+                    onSubmit={handleSearch}
+                    className={homeStyles.searchForm}
+                >
                     <input 
                         type="text"
-                        name="searchQuery"
-                        id={homeStyles.searchQuery}
+                        name="searchBar"
+                        id={homeStyles.searchBar}
                     />
                     <button 
                         type="submit"
-                        className={homeStyles.searchbtn}
+                        className={homeStyles.searchBtn}
                     >
                         <i className="fa-solid fa-angle-right"></i>
                     </button>
                 </form>
+                {/* left off here, figure out why positioning is not working */}
                 <button
                     className={homeStyles.resetBtn}
                     onClick={handleReset}
                 >
-                    Clear
+                    Reset
                 </button>
             </div>
         )
