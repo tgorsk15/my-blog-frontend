@@ -45,4 +45,41 @@
 .rightSide {
     background-color: greenyellow;
     width: 27vw;
+    padding-left: 28px;
+}
+
+
+
+.contactTitle {
+    text-align: left;
+}
+
+.githubLink {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    
+}
+
+.githubLink > i {
+    width: 20px;
+    height: 20px;
+
+}
+
+
+.phoneEmailBox {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+}
+
+.phoneEmailBox > h3 {
+    margin-bottom: 0px;
+    margin-top: 0px;
 }

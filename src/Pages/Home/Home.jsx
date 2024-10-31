@@ -81,19 +81,21 @@ export const Home = () => {
                         handleGetAll = {handleGetAll}
                     />
                     <div className={homeStyles.infoContainer}>
+                        <h2 className={homeStyles.contactTitle}>Contact:</h2>
                         <div className={homeStyles.githubBox}>
-
-                        </div>
-                        <div className={homeStyles.emailBox}>
-                            <h2>Contact:</h2>
                             <h3>
-                                <a href={import.meta.env.VITE_PROD_API_URL}>
-                                    tgorsk15
+                                <a href={import.meta.env.VITE_GITHUB_URL}
+                                    className={homeStyles.githubLink}
+                                >
                                     <i className="devicon-github-original"></i>
+                                    tgorsk15
+                                    
                                 </a>
                             </h3>
-                            <h3>{authorPhone}</h3>
-                            <h3>{authorEmail}</h3>
+                        </div>
+                        <div className={homeStyles.phoneEmailBox}>
+                            <h3>Phone: {authorPhone}</h3>
+                            <h3>Email: {authorEmail}</h3>
                         </div>
                     </div>
                 </div> 
