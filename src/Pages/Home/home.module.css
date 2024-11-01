@@ -23,11 +23,22 @@
 }
 
 .postsSection {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    column-gap: 8px;
+    row-gap: 8px;
     background-color: rgb(193, 191, 191);
+    
+}
+
+.blogCard {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 6px;
 }
 
 
-.blogItem h2 {
+.cardTitle {
     margin-top: 0px;
 }
 
@@ -101,7 +112,6 @@
     text-decoration: none;
     color: black;
     cursor: pointer;
-    
 }
 
 .githubLink > i {

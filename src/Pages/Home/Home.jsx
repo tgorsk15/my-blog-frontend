@@ -69,12 +69,11 @@ export const Home = () => {
                                 <h2>No results were found</h2>
 
                             </div>
-                            // afterwards, start styling the euthor information, then article cards...
                         )}
                     </div> 
                 </div>
                 <div className={homeStyles.rightSide}>
-                    {/* this will contain search bar, author info */}
+                    {/* contains search bar, author info */}
                     <Search
                         postsList = {postsList}
                         setList = {setList}
@@ -89,7 +88,6 @@ export const Home = () => {
                                 >
                                     <i className="devicon-github-original"></i>
                                     tgorsk15
-                                    
                                 </a>
                             </h3>
                         </div>

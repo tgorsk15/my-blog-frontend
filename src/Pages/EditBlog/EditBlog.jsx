@@ -18,8 +18,13 @@ export const EditBlog = () => {
 
         const newTitle = titleRef.current.value
         const newContent = contentRef.current.getContent()
-        console.log('here is new title', newTitle)
         console.log('here is new content', newContent)
+
+        // for displaying on Home screen
+        const contentText = contentRef.current.getContent({format: 'text'})
+        console.log('content in text form:', contentText)
+        post.contentPreview = contentText
+        console.log(post.contentPreview)
 
         handleUpdatePost(newTitle, newContent)
     }

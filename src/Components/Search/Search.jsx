@@ -45,7 +45,6 @@ export const Search = ({ postsList, setList, handleGetAll }) => {
                         <i className="fa-solid fa-angle-right"></i>
                     </button>
                 </form>
-                {/* left off here, figure out why positioning is not working */}
                 <button
                     className={homeStyles.resetBtn}
                     onClick={handleReset}
