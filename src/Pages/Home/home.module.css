@@ -11,6 +11,37 @@
     margin-left: 60px;
 }
 
+.postSelectionBox {
+    display: flex;
+    gap: 70px;
+}
+
+.postSelectionBox > button {
+    position: relative;
+    padding: 0px;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+}
+
+.postSelectionBox > button::after {
+    position: absolute;
+    display: block;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    background-color: black;
+    width: 0%;
+    transition: all ease-out 200ms;
+}
+
+.postSelectionBox > button:hover::after {
+    width: 100%;
+    transition: all ease-in 200ms;
+}
+
+
 .bottomHomeSection {
     display: flex;
     justify-content: center;
@@ -110,6 +141,9 @@
     background-color: greenyellow;
     width: 27vw;
     padding-left: 28px;
+    height: fit-content;
+    padding-top: 15px;
+    padding-bottom: 70px;
 }
 
 
@@ -153,6 +187,10 @@
 }
 
 /* infoSection */
+.infoContainer {
+    margin-top: 40px;
+}
+
 .contactTitle {
     text-align: left;
 }

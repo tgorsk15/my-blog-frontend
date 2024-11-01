@@ -32,7 +32,7 @@ export const Home = () => {
     return (
         <section className={homeStyles.homePage}>
             <section className={homeStyles.topHomeSection}>
-                <h2>Check out My Posts</h2>
+                <h2>Check out</h2>
                 <div className={homeStyles.postSelectionBox}>
                     <button 
                         className={homeStyles.defaultPostsBtn}
