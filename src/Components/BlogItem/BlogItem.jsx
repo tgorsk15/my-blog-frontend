@@ -26,8 +26,6 @@ export const BlogItem = ({ post }) => {
         </div>
     )
 }
-// TMW 11/1: Continue to style the article cards... 
-// eventually move onto styling the right side of page
 
 BlogItem.propTypes = {
     post: PropTypes.object

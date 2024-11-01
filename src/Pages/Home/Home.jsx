@@ -12,6 +12,8 @@ export const Home = () => {
     const postsList = useLoaderData()
     const [activeList, setList] = useState(postsList)
     const [activeBtn, setBtn] = useState('all');
+    // actually might need a loading state when "Read" is clicked
+
     const authorPhone = "+1-630-589-2026";
     const authorEmail = "tgorsk352@gmail.com";
 

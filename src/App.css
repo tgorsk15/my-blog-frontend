@@ -3,6 +3,8 @@
   min-height: 100vh;
   margin: 0 auto;
   text-align: center;
+  /* background-color: #8697C4; */
+  background-color: #315562;
 }
 
 /* Nav Bar */
@@ -10,6 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
 }
 
 .links-container {
@@ -31,6 +34,7 @@
 .nav-links button {
   background: none;
   padding: 0px;
+  color: white;
 }
 
 /* loading state */
