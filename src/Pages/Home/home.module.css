@@ -27,14 +27,24 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     column-gap: 8px;
     row-gap: 8px;
-    background-color: rgb(193, 191, 191);
+    /* background-color: rgb(193, 191, 191); */
     
 }
 
 .blogCard {
+    background-color: aliceblue;
     border: 2px solid black;
     border-radius: 15px;
     padding: 6px;
+    box-shadow: 2px 2px 4px 0px hsl(0, 0%, 0%, 0.4);
+}
+
+.blogCard:hover {
+    background-color: rgb(159, 203, 159);
+}
+
+.blogCard * {
+    color: black;
 }
 
 

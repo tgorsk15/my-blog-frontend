@@ -12,13 +12,15 @@ export const BlogItem = ({ post }) => {
                 {post.title}
             </h2>
             <h4 className={homesStyles.cardContent}>
-                Written {post.createdAt}
+                {post.createdAt}
             </h4>
             <p>{post.preview}</p>
             </Link>
         </div>
     )
 }
+// TMW 11/1: Continue to style the article cards... 
+// eventually move onto styling the right side of page
 
 BlogItem.propTypes = {
     post: PropTypes.object

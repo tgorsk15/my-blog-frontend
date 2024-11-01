@@ -46,7 +46,7 @@ export const BlogView = () => {
             <div className={viewStyles.blogContainer} id="blogContainer">
                 <div className={viewStyles.titleSection}>
                     <h1>{currentPost.title}</h1>
-                    <h3>{formattedDate}</h3>
+                    <h3>Written {formattedDate}</h3>
                 </div>
                 <div className={viewStyles.contentSection}>
                     <div 
