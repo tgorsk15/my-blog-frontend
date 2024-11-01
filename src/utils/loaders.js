@@ -77,8 +77,8 @@ export const getPublicPosts = async ({ logout }) => {
                 // keep old format so that list can be easily sorted by date later on:
                 post.oldCreatedAt = post.createdAt
                 // also create content preview:
-                post.contentPreview = post.content.getBody().textContent
-                console.log('here is text preview:', post.contentPreview)
+                // post.contentPreview = post.content.getBody().textContent
+                // console.log('here is text preview:', post.contentPreview)
                 //
                 const formattedDate = formatDate(post.createdAt)
                 post.createdAt = formattedDate

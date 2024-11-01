@@ -12,7 +12,7 @@ export const CreateBlog = () => {
     const { userData } = useAuth()
     const navigate = useNavigate()
 
-    async function handlePost(title, content) {
+    async function handlePost(title, content, preview) {
         const token = localStorage.getItem('token')
         const userId = userData.id
         console.log(userId)
@@ -23,6 +23,7 @@ export const CreateBlog = () => {
             body: JSON.stringify({
                 title,
                 content,
+                preview,
                 userId
             })
         }
@@ -45,20 +46,17 @@ export const CreateBlog = () => {
         const title = formData.get('postName')
         let content = contentRef.current.getContent()
         console.log(content)
-        console.log(title)
-        // remove <p> tags:
-        // content = content.replace(/^<p>(.*)<\/p>$/, '$1');
 
-        // actually, the content has to be kept with its html tags... 
-        if (title && content) {
-            await handlePost(title, content)
+        let contentPreview = contentRef.current.getContent({format: 'text'})
+        const preview = contentPreview.substr(0, 75) + '...'
+        console.log('here is preview feature:', preview)
+ 
+        if (title && content && preview) {
+            await handlePost(title, content, preview)
             navigate("/blogDash")
         }
     }
 
-
-    // on submit, need to post the new data to the API (need to send userId as well)
-    // afterwards, redirect to BlogDash (should show new post)
 
     return (
         <section className={blogStyles.createBlogPage}>
