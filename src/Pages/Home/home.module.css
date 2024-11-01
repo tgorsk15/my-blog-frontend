@@ -32,16 +32,37 @@
 }
 
 .blogCard {
+    position: relative;
     background-color: aliceblue;
     border: 2px solid black;
     border-radius: 15px;
     padding: 6px;
     box-shadow: 2px 2px 4px 0px hsl(0, 0%, 0%, 0.4);
+    overflow: hidden;
+    cursor: pointer;
+    will-change: transform;
 }
 
-.blogCard:hover {
+.blogCard::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgb(159, 203, 159);
+    transform: translateX(-100%);
+    transition: transform 300ms ease-in-out;
+    z-index: 0;
+    opacity: 0.3;
 }
+
+.blogCard:hover::before {
+    transform: translateX(0);
+    transition: transform 400ms ease-in-out;
+}
+
 
 .blogCard * {
     color: black;
