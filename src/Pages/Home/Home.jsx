@@ -16,10 +16,13 @@ export const Home = () => {
     const authorEmail = "tgorsk352@gmail.com";
 
     function handleGetAll() {
+        console.log('active button is', activeBtn)
         setList(postsList)
     }
 
     function handleGetLatest() {
+        setBtn('latest')
+        console.log('active button is', activeBtn)
         const listCopy = activeList;
         const latestPosts = sortPostsByDate(listCopy)
         setList(latestPosts)
@@ -32,13 +35,18 @@ export const Home = () => {
                 <h2>Check out</h2>
                 <div className={homeStyles.postSelectionBox}>
                     <button 
-                        className={homeStyles.defaultPostsBtn}
-                        onClick={handleGetAll}
+                        className={`${homeStyles.defaultPostsBtn} 
+                            ${activeBtn === 'all' ? homeStyles.activeBtn : ''} `}
+                        onClick={() => {
+                            setBtn('all')
+                            handleGetAll()
+                        }}
                     >
                         All Posts
                     </button>
                     <button 
-                        className={homeStyles.latestPostsBtn}
+                        className={`{homeStyles.latestPostsBtn}
+                            ${activeBtn === 'latest' ? homeStyles.activeBtn : ''}`}
                         onClick={handleGetLatest}
                     >
                         Latest Posts
@@ -58,11 +66,10 @@ export const Home = () => {
                                 )
                                 
                             })
-
-                            
+ 
                         ) : (
                             <div className={homeStyles.emptyPosts}>
-                                <img src={noResults} alt="no results icon" />  
+                                <img src={noResults} alt="no results" />  
                                 <h2>No results were found</h2>
 
                             </div>

@@ -37,7 +37,7 @@
     transition: background-position 200ms ease-out;
 }
 
-.postSelectionBox > button:active {
+.postSelectionBox > button.activeBtn {
     background-position: 0 100%;
     transition: background-position 200ms ease-in;
 }
