@@ -14,7 +14,14 @@ export const BlogItem = ({ post }) => {
             <h4 className={homesStyles.cardContent}>
                 {post.createdAt}
             </h4>
-            <p>{post.preview}</p>
+            <p className={homesStyles.postPreview}>
+                {post.preview}
+            </p>
+            
+            <h3 className={homesStyles.readLink}>
+                Read 
+                <i className="fa-solid fa-angle-right"></i>
+            </h3>
             </Link>
         </div>
     )

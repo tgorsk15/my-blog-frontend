@@ -33,7 +33,7 @@
 
 .blogCard {
     position: relative;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     border: 2px solid black;
     border-radius: 15px;
     padding: 6px;
@@ -51,7 +51,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(159, 203, 159);
+    /* background-color: rgb(159, 203, 159); */
+    background-color: rgb(106, 239, 115);
     transform: translateX(-100%);
     transition: transform 300ms ease-in-out;
     z-index: 0;
@@ -73,6 +74,27 @@
     margin-top: 0px;
 }
 
+.postPreview {
+    margin-bottom: 40px;
+}
+
+.readLink {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    padding: 0px;
+    margin: 0px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform ease-out 250ms;
+}
+
+
+.readLink:hover {
+    transform: scale(1.1);
+}
 
 .emptyPosts > svg {
     height: 100px;
