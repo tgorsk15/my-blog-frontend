@@ -1,6 +1,5 @@
 import { useLoaderData } from "react-router-dom"
 import { useState } from "react"
-import { useAuth } from "../../utils/useAuth"
 import { sortPostsByDate } from "../../utils/sortDates"
 
 import { BlogItem } from "../../Components/BlogItem/BlogItem"
@@ -12,8 +11,7 @@ import homeStyles from "./home.module.css"
 export const Home = () => {
     const postsList = useLoaderData()
     const [activeList, setList] = useState(postsList)
-    // loading is true when clicking All or latest below:
-    const [homeLoading, setLoading] = useState(false)
+    const [activeBtn, setBtn] = useState('all');
     const authorPhone = "+1-630-589-2026";
     const authorEmail = "tgorsk352@gmail.com";
 
@@ -28,7 +26,6 @@ export const Home = () => {
         console.log('updated active list', activeList)
     }
 
-    // need to add sliding animations to the two buttons
     return (
         <section className={homeStyles.homePage}>
             <section className={homeStyles.topHomeSection}>

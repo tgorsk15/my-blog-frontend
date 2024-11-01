@@ -14,16 +14,35 @@
 .postSelectionBox {
     display: flex;
     gap: 70px;
+    margin-bottom: 15px;
 }
 
 .postSelectionBox > button {
     position: relative;
     padding: 0px;
+    padding-bottom: 5px;
     font-size: 23px;
     font-weight: bold;
     background: none;
+
+    /* for click animation: */
+    overflow: hidden;
+    background: 
+        linear-gradient(to right, rgb(255, 111, 60), rgb(255, 111, 60) 50%, black 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 200ms ease-out;
 }
 
+.postSelectionBox > button:active {
+    background-position: 0 100%;
+    transition: background-position 200ms ease-in;
+}
+
+/* underline animation */
 .postSelectionBox > button::after {
     position: absolute;
     display: block;
@@ -40,6 +59,9 @@
     width: 100%;
     transition: all ease-in 200ms;
 }
+
+/* click animation */
+
 
 
 .bottomHomeSection {
