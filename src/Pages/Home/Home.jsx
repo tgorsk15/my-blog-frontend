@@ -13,6 +13,7 @@ export const Home = () => {
     const [activeList, setList] = useState(postsList)
     const [activeBtn, setBtn] = useState('all');
     // actually might need a loading state when "Read" is clicked
+    const [homeLoading, setLoading] = useState(false)
 
     const authorPhone = "+1-630-589-2026";
     const authorEmail = "tgorsk352@gmail.com";
@@ -33,7 +34,14 @@ export const Home = () => {
 
     return (
         <section className={homeStyles.homePage}>
-            <section className={homeStyles.topHomeSection}>
+            {homeLoading ? (
+                <div className={homeStyles.spinnerContainer}>
+                    <div className={homeStyles.loadSpinner}>
+                </div>    
+            </div>
+            ) : (
+                <>
+                <section className={homeStyles.topHomeSection}>
                 <h2>Check out</h2>
                 <div className={homeStyles.postSelectionBox}>
                     <button 
@@ -64,6 +72,7 @@ export const Home = () => {
                                     <BlogItem
                                         key ={post.id} 
                                         post={post}
+                                        setLoading={setLoading}
                                     />
                                 )
                                 
@@ -106,6 +115,9 @@ export const Home = () => {
                 
 
             </section>
+            </>
+            )}
+            
         </section>
     )
 }

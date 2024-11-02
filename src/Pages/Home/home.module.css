@@ -164,9 +164,12 @@
     padding-bottom: 70px;
     color: white;
     border-radius: 10px;
-    /* box-shadow: 2px 2px 7px rgb(61, 60, 60); */
 }
 
+/* TMW 11/2:  Polish/style the searchbar section
+... when Home is in a good place, start designing the NavBar
+... also might want to create a loading state for Home again for when
+user clicks an article to read */
 
 /* search section */
 .searchContainer {
@@ -190,6 +193,10 @@
 #searchBar {
     width: 100%;
     padding: 7px;
+    border-radius: 10px;
+    background-color: #a8d0e6;
+    border: none;
+    box-shadow: 0px 0px 10px hsl(0, 0%, 0%, 0.4);
 }
 
 .searchBtn {

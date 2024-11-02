@@ -52,9 +52,8 @@ export const BlogDash = () => {
             {dashLoading ? (
                 <div className={dashStyles.spinnerContainer}>
                     <div className={dashStyles.loadSpinner}>
-
-                    </div>    
-                </div>
+                </div>    
+            </div>
             ) : (
                 <>
                     <section className={dashStyles.postsSection}>
