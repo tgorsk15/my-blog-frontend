@@ -2,6 +2,45 @@
     margin: 30px;
 }
 
+/* loading state */
+@keyframes rotate {
+    100%   {transform: rotate(360deg)}
+}
+  
+@keyframes prixClipFix {
+    0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+    25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+    50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+    75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+    100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+}
+
+.spinnerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.loadSpinner {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite;
+}
+
+.loadSpinner::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #e29898;
+    animation: prixClipFix 1s linear infinite ;
+}
+/*  */
+
 .topHomeSection {
     display: flex;
     flex-direction: column;
@@ -88,7 +127,6 @@
     overflow: hidden;
     cursor: pointer;
     will-change: transform;
-    /* background-color: #ede8f5; */
     background-color: white;
 }
 
@@ -100,7 +138,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /* background-color: rgb(106, 239, 115); */
     background-color: #adbbda;
     transform: translateX(-100%);
     transition: transform 300ms ease-in-out;
@@ -156,7 +193,6 @@
 
 /* right side */
 .rightSide {
-    /* background-color: #ee4c7c; */
     width: 27vw;
     padding-left: 28px;
     height: fit-content;
@@ -165,11 +201,6 @@
     color: white;
     border-radius: 10px;
 }
-
-/* TMW 11/2:  Polish/style the searchbar section
-... when Home is in a good place, start designing the NavBar
-... also might want to create a loading state for Home again for when
-user clicks an article to read */
 
 /* search section */
 .searchContainer {

@@ -7,10 +7,11 @@ export const BlogItem = ({ post, setLoading }) => {
 
     function handleCardClick() {
         setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+        }, 1500)
     }
-    setTimeout(() => {
-        setLoading(false)
-    }, 1500)
+    
 
     return (
         <div className={homesStyles.blogCard}>
