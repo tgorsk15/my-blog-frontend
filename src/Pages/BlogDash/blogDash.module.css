@@ -6,20 +6,75 @@
 }
 
 .postsSection {
+    height: 85vh;
     width: 60vw;
-    background-color: lightblue;
+    background-color: #c4dbf6;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgb(59, 58, 58);
+}
+
+.selectContainer {
+    display: flex;
+    margin-left: 50px;
+    gap: 50px;
+}
+
+.selectContainer > button {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 0px;
+    background: none;
+    font-size: 24px;
+
+    /* for click */
+    overflow: hidden;
+    background: 
+        linear-gradient(to right, rgb(255, 111, 60), rgb(255, 111, 60) 50%, black 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 200ms ease-out;
+}
+
+.selectContainer > button::after {
+    position: absolute;
+    display: block;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    background-color: black;
+    width: 0%;
+    transition: all ease-out 200ms;
+}
+
+.selectContainer > button:hover::after {
+    width: 100%;
+}
+
+.selectContainer > button.activeBtn {
+    background-position: 0 100%;
+    transition: background-position 200ms ease-in;
 }
 
 .addPostSection {
     width: 20vw;
     height: 20px;
-    background-color: rgb(185, 222, 185);
-    height: calc(100vh - 76px)
+    /* background-color: rgb(185, 222, 185); */
+    height: calc(100vh - 76px);
+    color: white;
+}
+
+.listContainerShell {
+    overflow: hidden;
+     
 }
 
 .listContainer {
     margin: 0px 20px;
-    overflow-y: scroll;
+    overflow-y: scroll;   
     max-height: 60vh;
 }
 
@@ -48,7 +103,7 @@
     justify-content: center;
     height: 50vh;
     margin-top: 50%;
-    border: 3px dashed black;
+    border: 3px dashed white;
     border-radius: 20px;
     transition: all ease-in-out 250ms;
 }
@@ -57,8 +112,12 @@
     opacity: 0.6;
 }
 
-.createNewBox {
+.createBlogLink{
+    color: white;
+}
 
+.createBlogLink:hover {
+    color: white;
 }
 
 .addSvg {

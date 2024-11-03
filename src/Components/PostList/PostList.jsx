@@ -1,12 +1,10 @@
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import PropTypes from "prop-types"
 import { getEnvVariable } from "../../utils/apiSetter"
 
 import dashStyles from "../../Pages/BlogDash/blogDash.module.css"
 
 export const PostList = ({ activeList, handleListChange, setDashLoading }) => {
-    // left off here... need to pass loading state down, and everything should be
-    // ready with handleNavigate so that I can set loading state in there
     const navigate = useNavigate();
 
     async function handlePublish(e) {
@@ -104,5 +102,6 @@ export const PostList = ({ activeList, handleListChange, setDashLoading }) => {
 
 PostList.propTypes = {
     activeList: PropTypes.array,
-    handleListChange: PropTypes.func
+    handleListChange: PropTypes.func,
+    setDashLoading: PropTypes.func
 }
