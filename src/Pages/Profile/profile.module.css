@@ -242,10 +242,6 @@
     box-shadow: 0px 0px 5px rgb(51, 50, 50);
 }
 
-
-/* left off here... create hover animation: 
-button turns blue from middle and out, text turns white */
-
 .formErrContainer {
     height: 120px;
 }

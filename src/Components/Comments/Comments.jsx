@@ -156,7 +156,7 @@ export const Comments = ({ post, handlePostChange,
                 <div className={viewStyles.createCommentContainer}>
                     <textarea
                         name="newComment" 
-                        id="newComment"
+                        className={viewStyles.commentText}
                         ref={textAreaRef}
                         placeholder="Write Something..."
                         rows={8}
