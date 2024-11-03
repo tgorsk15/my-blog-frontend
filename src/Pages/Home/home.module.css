@@ -1,5 +1,7 @@
 .homePage {
     margin: 30px;
+    margin-left: 45px;
+    margin-top: 10px;
 }
 
 /* loading state */
@@ -48,6 +50,17 @@
     width: 100vw;
     margin-bottom: 25px;
     margin-left: 60px;
+}
+
+.siteTitle {
+    color: white;
+    font-size: 36px;
+    margin-top: 0px;
+    margin-bottom: 55px;
+}
+
+.siteTitle > span {
+    color: rgb(255, 111, 60);
 }
 
 .postSelectionBox {

@@ -8,16 +8,41 @@
 
 /* Nav Bar */
 .navbar-section {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
   color: white;
 }
+
+/* Non-user screen */
+.site-title {
+  position: absolute;
+  left: 20px;
+  top: -10px;
+  margin-left: 30px;
+  font-size: 30px;
+}
+
+.site-title > span {
+  color: rgb(255, 111, 60);
+}
+
+.login-link {
+  color: white;
+  transition: color ease-in 200ms;
+}
+
+.login-link:hover {
+  color: rgb(255, 111, 60);
+}
+/*  */
 
 .links-container {
   display: flex;
   margin-right: 20px;
   align-items: center;
+  
 }
 
 .nav-links {
@@ -34,6 +59,11 @@
   background: none;
   padding: 0px;
   color: white;
+  transition: color ease-in 200ms;
+}
+
+.nav-links button:hover {
+  color: rgb(255, 111, 60);
 }
 
 /* loading state */
@@ -105,12 +135,13 @@
 .profile-btn > i {
   opacity: 0;
   height: 10px;
-  transition: all ease-in-out 250ms;
+  transition: all ease-in 200ms;
 }
 
 .profile-btn:hover i {
   display: inline-block;
   opacity: 1;
+  color: rgb(255, 111, 60)
 }
 
 .dropdown-container {
@@ -121,7 +152,7 @@
   background-color: rgb(242, 236, 236);
   border-radius: 5px;
   width: 140px;
-  box-shadow: 0px 4px 6px 0px rgb(175, 174, 174);
+  box-shadow: 0px 4px 6px 0px rgb(71, 69, 69);
   transform-origin: top;
 }
 

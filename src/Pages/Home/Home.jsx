@@ -42,7 +42,9 @@ export const Home = () => {
             ) : (
                 <>
                 <section className={homeStyles.topHomeSection}>
-                    <h2>Check out</h2>
+                    <h2 className={homeStyles.siteTitle}>
+                        The Daily<span>.</span>Coder<span>/</span> 
+                    </h2>
                     <div className={homeStyles.postSelectionBox}>
                         <button 
                             className={`${homeStyles.defaultPostsBtn} 

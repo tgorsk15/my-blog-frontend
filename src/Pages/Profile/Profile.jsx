@@ -14,7 +14,7 @@ export const Profile = () => {
 
     return (
         <section className={profileStyles.profileSection}>
-            <h1>Welcome to My Blog!</h1>
+            <h1 className={profileStyles.profileWelcome}>Welcome to The Daily Coder!</h1>
 
                 
 
@@ -27,14 +27,15 @@ export const Profile = () => {
                 <div className={profileStyles.userOptionsContainer}>
                     <h4>Need an Account?</h4>
                     <h4>
-                        <Link to="/profile/signup" >Sign Up </Link> today!
+                        <Link to="/profile/signup" className={profileStyles.signupLink}>
+                            Sign Up </Link> today!
                     </h4>
                 </div>
             ) : (
                 <div className={profileStyles.userOptionsContainer}>
                     <h4>Already have an Account?</h4>
                     <h4>
-                        <Link to="/profile/login" >Sign in </Link>
+                        <Link to="/profile/login" className={profileStyles.signinLink}>Sign in </Link>
                     </h4>
                 </div>
             )}

@@ -9,7 +9,7 @@ export const BlogItem = ({ post, setLoading }) => {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
-        }, 1500)
+        }, 3000)
     }
     
 

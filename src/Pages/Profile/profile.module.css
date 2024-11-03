@@ -29,17 +29,36 @@
     
 }
 
-
-.userOptionsContainer {
-
+.profileWelcome {
+    color: white;
+    margin-top: 80px;
 }
 
 .userOptionsContainer > * {
     margin: 5px 0px;
+    color: white;
 }
 
-.userOptionsContainer > p {
+.signupLink {
+    color: white;
+    text-decoration: underline;
     font-weight: bold;
+    transition: color ease-in 200ms;
+}
+
+.signupLink:hover {
+    color: rgb(255, 111, 60);
+}
+
+.signinLink {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color ease-in 200ms;
+}
+
+.signinLink:hover {
+    color: rgb(255, 111, 60);
 }
 
 
@@ -55,6 +74,7 @@
 
 .signinTitle {
     margin-top: 0px;
+    color: white;
 }
 
 .loginSection {
@@ -66,8 +86,6 @@
 
 .loginErrContainer {
     height: 30px;
-    /* width: 100px; */
-    /* background-color: aqua; */
 }
 
 .loginErrMsg {
@@ -78,10 +96,12 @@
     width: fit-content;
     margin: 30px 0px;
     padding: 30px;
-    border: 2px solid black;
+    background-color: #518598;;
+    border: 2px solid rgb(41, 40, 40);
     border-radius: 15px;
     transition: height 0.5s;
     transform-origin: top;
+    box-shadow: 0px 0px 15px rgb(55, 54, 54);
 }
 
 .usernameSection, .passwordSection {
@@ -94,13 +114,45 @@
 }
 
 .loginBtn {
+    position: relative;
     margin-top: 15px;
     width: 100%;
+    box-shadow: 0px 0px 3px black;
+    box-sizing: border-box;
+    transition: color 200ms ease-out;
+    will-change: transform;
+    border: none;
+    border-radius: 10px;
 }
 
-/* left off here:  need to reformat Login so that the error
-message pops up at the top... set parent container to a fixed
-height to prevent login box from being moved down on error load */
+.loginBtn:hover {
+    color: white;
+}
+
+.loginBtn::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #0074e1;
+    z-index: -1;
+    opacity: 0;
+    transform: scale(0.1);
+    transform-origin: center;
+    border-radius: 10px;
+    transition: all 200ms ease-out;
+    will-change: transform;
+}
+
+.loginBtn:hover::before {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 200ms ease-out;
+    box-shadow: 0px 0px 5px rgb(51, 50, 50);
+}
 
 
 /* Signup Component */
@@ -120,12 +172,14 @@ height to prevent login box from being moved down on error load */
     width: fit-content;
     margin-bottom: 40px;
     padding: 20px 30px;
+    background-color: #518598;
     border: 2px solid black;
     border-radius: 15px;
+    box-shadow: 0px 0px 15px rgb(55, 54, 54);
 }
 
 .signupTitle {
-
+    color: white;
 }
 
 .nameInfoContainer > input, .userInfoContainer > input{
@@ -149,8 +203,48 @@ height to prevent login box from being moved down on error load */
 }
 
 .signupBtn {
+    position: relative;
     margin-top: 30px;
+    box-shadow: 0px 0px 4px black;
+    box-sizing: border-box;
+    transition: color 200ms ease-out;
+    will-change: transform;
+    border: none;
+    border-radius: 10px;
 }
+
+.signupBtn:hover {
+    color: white;
+}
+
+.signupBtn::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #0074e1;
+    z-index: -1;
+    opacity: 0;
+    transform: scale(0.1);
+    transform-origin: center;
+    border-radius: 10px;
+    transition: all 200ms ease-out;
+    will-change: transform;
+}
+
+.signupBtn:hover::before {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 200ms ease-out;
+    box-shadow: 0px 0px 5px rgb(51, 50, 50);
+}
+
+
+/* left off here... create hover animation: 
+button turns blue from middle and out, text turns white */
 
 .formErrContainer {
     height: 120px;

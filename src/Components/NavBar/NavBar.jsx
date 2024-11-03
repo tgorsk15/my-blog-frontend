@@ -25,7 +25,11 @@ export const NavBar = () => {
 
     return (
         <nav className='navbar-section'>
-            <h2>Tgorsk's Blog</h2>
+            {!userData && (
+                <h2 className='site-title'>
+                    The Daily<span>.</span>Coder<span>/</span> 
+                </h2>
+            )}
             <div className='links-container'>
                 {navLoading && (
                     <div className='spinner-container'>
@@ -34,7 +38,7 @@ export const NavBar = () => {
                         </div>    
                     </div> 
                 )}
-                {userData && userData.isAuthor === true && (
+                {userData && (
                     <h2>Hi {userData.firstName}</h2>
                 )}
                 <ul className='nav-links'>
@@ -70,19 +74,24 @@ export const NavBar = () => {
                                     User Info
                                 </li>
                                 <li className='user-logout-li'>
-                                    <Link to="/profile/login" onClick={handleLogout}>Logout</Link>
+                                    <Link to="/profile/login" onClick={handleLogout}>
+                                        Logout
+                                    </Link>
                                 </li>
                             </div>
 
                         </div>
                     
-                    ) : (
+                    ) : (  
                         <li>
-                            <Link to="/profile/login">Log In</Link>
+                            <Link to="/profile/login" className='login-link'>
+                                Log In
+                            </Link>
                         </li>
                     )}
                      
                 </ul>
+
                 
             </div>
             
