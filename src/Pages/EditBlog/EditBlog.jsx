@@ -1,5 +1,5 @@
 import { useLoaderData, useNavigate } from "react-router-dom"
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { getEnvVariable } from "../../utils/apiSetter"
 import { PostEditor } from "../../Components/Editor/Editor";
 
@@ -30,7 +30,6 @@ export const EditBlog = () => {
     }
 
     async function handleUpdatePost(newTitle, newContent) {
-        // left off here... start building this out
         const token = localStorage.getItem('token')
         const postId = post.id
 
@@ -59,24 +58,29 @@ export const EditBlog = () => {
         <>
         
         <section className={blogStyles.editBlogPage}>
-            <h2>Edit Blog</h2>
-            <form action="" onSubmit={handleSubmitClick}>
-                <label htmlFor="postName">Title:</label>
-                <input 
-                    type="text"
-                    name="postName"
-                    defaultValue={post.title}
-                    ref={titleRef}
-                />
+            <div className={blogStyles.blogContainer}>
+                <h2>Edit Your Blog</h2>
+                <form 
+                    onSubmit={handleSubmitClick}
+                    className={blogStyles.editBlogForm}
+                >
+                    <label htmlFor="postName">Title:</label>
+                    <input 
+                        type="text"
+                        name="postName"
+                        defaultValue={post.title}
+                        ref={titleRef}
+                    />
 
-                <label htmlFor="postContent">Post Body:</label>
-                <PostEditor
-                    contentRef= {contentRef}
-                />
+                    <label htmlFor="postContent">Post Body:</label>
+                    <PostEditor
+                        contentRef= {contentRef}
+                    />
 
-                <button>Update Post</button>
-                
-            </form>
+                    <button>Update Post</button>
+                    
+                </form>
+            </div>
             
         </section>
         </>

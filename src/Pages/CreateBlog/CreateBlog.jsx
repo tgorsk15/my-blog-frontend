@@ -60,23 +60,26 @@ export const CreateBlog = () => {
 
     return (
         <section className={blogStyles.createBlogPage}>
-            <h2>New Blog</h2>
-            <form action="" onSubmit={handleSubmit}>
-                <label htmlFor="postName">Title:</label>
-                <input 
-                    type="text"
-                    name="postName"
-                />
+            <div className={blogStyles.blogContainer}>
+                <h2>Create Your Blog</h2>
+                <form 
+                    onSubmit={handleSubmit}
+                    className={blogStyles.createBlogForm}
+                >
+                    <label htmlFor="postName">Title:</label>
+                    <input 
+                        type="text"
+                        name="postName"
+                    />
 
-                <label htmlFor="postContent">Post Body:</label>
-                <PostEditor
-                    contentRef= {contentRef}
-                />
+                    <label htmlFor="postContent">Post Body:</label>
+                    <PostEditor
+                        contentRef= {contentRef}
+                    />
 
-                <button>Add Post</button>
-                
-            </form>
-            
+                    <button>Add Post</button>
+                </form>
+            </div>
         </section>
     )
 
