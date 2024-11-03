@@ -63,7 +63,8 @@ export const Home = () => {
                 </section>
                 <section className={homeStyles.bottomHomeSection}>
                     <div className={homeStyles.leftSide}>
-                        <div className={homeStyles.postsSection}>
+                        <div className={`${activeList.length === 0 ? 
+                            homeStyles.emptyPostsSection : homeStyles.postsSection}`}>
                             {activeList.length > 0 ? (
                                 activeList.map((post) => {
                                     return (

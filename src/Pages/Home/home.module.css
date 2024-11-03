@@ -131,6 +131,25 @@
     row-gap: 8px;
 }
 
+/* class selector for when posts are empty */
+.emptyPostsSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    height: fit-content;
+}
+/*  */
+
+.emptyPosts img {
+    margin-bottom: 50px;
+}
+
+.emptyPosts > h2 {
+    color: white;
+    font-size: 30px;
+}
+
 .blogCard {
     position: relative;
     border: 2px solid black;
@@ -255,11 +274,26 @@
 }
 
 .resetBtn {
+    /* display: flex; */
+
     width: 22%;
     padding: 0px;
     text-decoration: underline;
     background: none;
     color: white;
+}
+
+.resetBtn i {
+    text-decoration: none;
+    margin-left: 6px;
+    color: white;
+    opacity: 0;
+    font-size: 14px;
+    transition: opacity 200ms ease-in-out;
+}
+
+.resetBtn:hover i {
+    opacity: 1;
 }
 
 /* infoSection */

@@ -50,6 +50,7 @@ export const Search = ({ postsList, setList, handleGetAll }) => {
                     onClick={handleReset}
                 >
                     Reset
+                    <i className="fa-solid fa-rotate-right"></i>
                 </button>
             </div>
         )
