@@ -75,15 +75,13 @@ export const BlogDash = () => {
                                 Public
                             </button>
                         </div>
-                        <div className={dashStyles.listContainerShell}>
-                            <div className={dashStyles.listContainer}>
-                                <PostList 
-                                    activeList = {activeList}
-                                    setActive = {setActive}
-                                    handleListChange = {handleListChange}
-                                    setDashLoading = {setDashLoading}
-                                />
-                            </div>
+                        <div className={dashStyles.listContainer}>
+                            <PostList 
+                                activeList = {activeList}
+                                setActive = {setActive}
+                                handleListChange = {handleListChange}
+                                setDashLoading = {setDashLoading}
+                            />
                         </div>
                         
                     </section>

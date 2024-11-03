@@ -59,8 +59,8 @@ export const PostList = ({ activeList, handleListChange, setDashLoading }) => {
                 return (
                     <div key={post.id} className={dashStyles.postContainer}>
                         <div className={dashStyles.postInfo}>
-                            <h2>{post.title}</h2>
-                            <h4>{post.createdAt}</h4>
+                            <h2 className={dashStyles.postTitle}>{post.title}</h2>
+                            <h4 className={dashStyles.postTime}>{post.createdAt}</h4>
                         </div>
                         <div className={dashStyles.postActions}>
                             <button

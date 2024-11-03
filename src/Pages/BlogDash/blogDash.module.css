@@ -8,6 +8,8 @@
 .postsSection {
     height: 85vh;
     width: 60vw;
+    padding: 10px;
+    padding-top: 0px;
     background-color: #c4dbf6;
     border-radius: 15px;
     box-shadow: 0px 0px 10px rgb(59, 58, 58);
@@ -67,11 +69,6 @@
     color: white;
 }
 
-.listContainerShell {
-    overflow: hidden;
-     
-}
-
 .listContainer {
     margin: 0px 20px;
     overflow-y: scroll;   
@@ -81,10 +78,27 @@
 
 
 /* PostList styling */
+.postContainer {
+    margin-top: 5px;
+}
+
 .postInfo {
     display: flex;
     align-items: center;
     gap: 25px;
+}
+
+.postInfo > * {
+    margin-bottom: 5px;
+}
+
+.postTitle {
+    font-size: 22px;
+    text-align: left;
+}
+
+.postTime {
+    font-size: 15px;
 }
 
 .postActions {
@@ -93,6 +107,18 @@
     align-items: center;
     gap: 15px;
     margin-left: 30px;
+}
+
+.postActions > button {
+    padding: 0px;
+    background: none;
+    transition: color 200ms ease-in-out;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.postActions > button:hover {
+    color: purple;
 }
 
 
