@@ -20,7 +20,6 @@ function App() {
   const [currentUser, changeUser] = useState(userData);
 
 
-  console.log('re-rendering App')
   const routes = [
     {
       path: "/",
