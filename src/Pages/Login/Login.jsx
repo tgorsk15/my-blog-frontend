@@ -34,6 +34,8 @@ export const Login = ({ changeUser }) => {
 
         try {
             const apiUrl = getEnvVariable()
+            console.log('apiUrl:', apiUrl)
+            // left off here... see what this logs as through Netlify
             const response = await fetch(`${apiUrl}/user/login`, options)
             const data = await response.json()
 

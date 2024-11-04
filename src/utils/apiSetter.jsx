@@ -8,3 +8,4 @@ export function getEnvVariable() {
     }
     return apiUrl
 }
+
