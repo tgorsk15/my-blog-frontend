@@ -15,7 +15,6 @@ export const BlogDash = () => {
         initialAllPosts.filter(post => post.published === true)
     )
     const [activeList, setActive] = useState(publicPosts);
-    // const [activeBtn, setBtn] = useState('all')
     const [activeType, setType] = useState("public");
     const [dashLoading, setDashLoading] = useState(false);
 

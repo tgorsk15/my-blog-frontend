@@ -32,7 +32,6 @@ export const Comments = ({ post, handlePostChange,
             const apiUrl = getEnvVariable()
             const response = await fetch(`${apiUrl}/comment/create/${post.id}`, options)
             const data = await response.json()
-            console.log('data after comment insertion', data)
             const updatedPost = data.post
 
             if (!response.ok) {
@@ -52,7 +51,6 @@ export const Comments = ({ post, handlePostChange,
     }
 
     function handleAddClick() {
-        console.log('adding comment')
         if (boxVisible) {
             setVisible(false)
         } else if (!boxVisible) {
@@ -71,7 +69,6 @@ export const Comments = ({ post, handlePostChange,
     }
 
     async function commentLikeFetch(liked, commentId, likes) {
-        console.log('paramteres', liked, commentId, likes)
         const token = localStorage.getItem('token')
         const options = {
             method: "PUT",
@@ -90,7 +87,6 @@ export const Comments = ({ post, handlePostChange,
                 response = await fetch(`${apiUrl}/comment/unlike/${commentId}`, options)
             }
             const data = await response.json()
-            console.log(data)
 
             if (!response.ok) {
                 console.log('not ok')

@@ -15,7 +15,6 @@ export const Search = ({ postsList, setList, handleGetAll }) => {
             const formData = new FormData(e.target);
             const searchQuery = formData.get('searchBar')
             const results = filterByQuery(searchQuery)
-            console.log('new filtered list:', results)
             
             setList(results)
         }

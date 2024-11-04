@@ -1,11 +1,8 @@
 import PropTypes from "prop-types"
 import { Editor } from '@tinymce/tinymce-react'
 
-import blogStyles from "../../Pages/EditBlog/blogEditor.module.css"
-
 
 export const PostEditor = ({ contentRef }) => {
-    // console.log(contentRef.current)
     return (
         <Editor 
             apiKey = {import.meta.env.VITE_TINY_API_KEY}

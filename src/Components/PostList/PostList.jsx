@@ -8,7 +8,6 @@ export const PostList = ({ activeList, handleListChange, setDashLoading }) => {
     const navigate = useNavigate();
 
     async function handlePublish(e) {
-        console.log('getting published?')
         const postId = e.target.value
         const buttonText = e.target.innerText
         const savedButtonText = buttonText
@@ -28,7 +27,6 @@ export const PostList = ({ activeList, handleListChange, setDashLoading }) => {
 
         try {
             const apiUrl = getEnvVariable()
-            console.log('boolean before fetch', pblcBoolean)
             const response = await fetch(`${apiUrl}/post/publish/${postId}/${pblcBoolean.toString()}`, options)
 
             if (!response.ok) {

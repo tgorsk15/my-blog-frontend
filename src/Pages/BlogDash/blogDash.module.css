@@ -64,7 +64,6 @@
 .addPostSection {
     width: 20vw;
     height: 20px;
-    /* background-color: rgb(185, 222, 185); */
     height: calc(100vh - 76px);
     color: white;
 }

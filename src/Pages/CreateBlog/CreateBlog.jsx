@@ -15,7 +15,6 @@ export const CreateBlog = () => {
     async function handlePost(title, content, preview) {
         const token = localStorage.getItem('token')
         const userId = userData.id
-        console.log(userId)
 
         const options = {
             method: "POST",
@@ -32,7 +31,6 @@ export const CreateBlog = () => {
             const apiUrl = getEnvVariable()
             const response = await fetch(`${apiUrl}/post/create`, options)
             const data = await response.json();
-            console.log('new post data', data.createdPost);
 
         } catch(err) {
             console.log(err)
@@ -45,11 +43,9 @@ export const CreateBlog = () => {
         const formData = new FormData(e.target);
         const title = formData.get('postName')
         let content = contentRef.current.getContent()
-        console.log(content)
 
         let contentPreview = contentRef.current.getContent({format: 'text'})
         const preview = contentPreview.substr(0, 75) + '...'
-        console.log('here is preview feature:', preview)
  
         if (title && content && preview) {
             await handlePost(title, content, preview)

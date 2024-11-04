@@ -1,11 +1,9 @@
-import { Navigate, redirect } from 'react-router-dom';
-import { useAuth } from './utils/useAuth';
+import { Navigate } from 'react-router-dom';
 
 import { Root } from './Pages/Root/Root'
 import { Profile } from './Pages/Profile/Profile'
 import { Login } from './Pages/Login/Login'
 import { SignUp } from './Pages/Signup/Signup'
-import { Error } from './Pages/ErrorPage/Error'
 import { Home } from './Pages/Home/Home'
 import { BlogView } from './Pages/Blog/BlogView'
 import { BlogDash } from './Pages/BlogDash/BlogDash'
@@ -14,6 +12,8 @@ import { EditBlog } from './Pages/EditBlog/EditBlog';
 
 import { getPublicPosts, getSinglePost, getAllPosts } from './utils/loaders';
 
+
+// NOT CURRENTLY BEING USED
 
 export const createRoutes = (userData, logout) => [
   {

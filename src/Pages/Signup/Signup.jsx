@@ -42,14 +42,12 @@ export const SignUp = () => {
             const apiUrl = getEnvVariable()
             const response = await fetch(`${apiUrl}/user/signup`, options)
             const data = await response.json()
-            console.log('response from sign up:', data)
-
+            
             if (!response.ok) {
                 setLoading(false)
                 console.log('not ok')
                 setSignupError(data.msg)
                 if (data.errors) {
-                    console.log('setting form errors', data.errors)
                     setInfoErrors(data.errors)
                 }
 

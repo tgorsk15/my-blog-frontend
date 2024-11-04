@@ -48,7 +48,7 @@ export const getPublicPosts = async ({ logout }) => {
     
     const tokenExp = isTokenExpired(token)
     if (tokenExp) {
-        console.log('tokrn is expired')
+        console.log('token is expired')
         logout()
         return redirect('/profile/login')
     }
@@ -76,10 +76,6 @@ export const getPublicPosts = async ({ logout }) => {
             posts.map((post) => {
                 // keep old format so that list can be easily sorted by date later on:
                 post.oldCreatedAt = post.createdAt
-                // also create content preview:
-                // post.contentPreview = post.content.getBody().textContent
-                // console.log('here is text preview:', post.contentPreview)
-                //
                 const formattedDate = formatDate(post.createdAt)
                 post.createdAt = formattedDate
             })
@@ -102,9 +98,7 @@ export const getSinglePost = async ({ params, logout }) => {
         return redirect('/profile/login')
     }
 
-    
     const { postId } = params
-    console.log('chosenId:', postId)
 
     const options = {
         method: "GET",
@@ -117,7 +111,6 @@ export const getSinglePost = async ({ params, logout }) => {
 
         const response = await fetch(`${apiUrl}/post/view/${postId}`, options)
         const data = await response.json()
-        console.log('post in loader function', data)
 
         const commentsArray = data.post.comments
 
