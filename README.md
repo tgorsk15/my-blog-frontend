@@ -8,3 +8,4 @@ If you wish to download and use the code yourself, keep in mind there are some d
 -tinyMCE Cloud
 
 A live version of the site can be found here:
+https://thedailycoder.netlify.app/
