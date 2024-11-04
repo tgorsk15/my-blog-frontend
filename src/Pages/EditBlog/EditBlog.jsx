@@ -59,7 +59,7 @@ export const EditBlog = () => {
         
         <section className={blogStyles.editBlogPage}>
             <div className={blogStyles.blogContainer}>
-                <h2>Edit Your Blog</h2>
+                <h2>Edit Your Post</h2>
                 <form 
                     onSubmit={handleSubmitClick}
                     className={blogStyles.editBlogForm}
@@ -68,6 +68,7 @@ export const EditBlog = () => {
                     <input 
                         type="text"
                         name="postName"
+                        className={blogStyles.postTitle}
                         defaultValue={post.title}
                         ref={titleRef}
                     />
@@ -77,7 +78,9 @@ export const EditBlog = () => {
                         contentRef= {contentRef}
                     />
 
-                    <button>Update Post</button>
+                    <button className={blogStyles.updateBtn}>
+                        Update Post
+                    </button>
                     
                 </form>
             </div>

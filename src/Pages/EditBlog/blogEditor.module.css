@@ -2,18 +2,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
+    padding-bottom: 100px;
+    color: white;
 }
 
 .blogContainer {
-    background-color: mistyrose;
+    background: rgb(207,178,230);
+    background: linear-gradient(207deg, rgba(207,178,230,1) 31%, rgba(179,124,240,1) 94%);
     width: 80vw;
     padding: 20px 30px;
+    margin-top: 60px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgb(67, 67, 67);
 }
 
 .blogContainer > h2 {
-
+    color: black;
 }
 
 .createBlogForm, .editBlogForm {
@@ -21,4 +25,52 @@
     flex-direction: column;
 }
 
-/* left off here... continue to structure form and rest of page */
+.createBlogForm > label, .editBlogForm > label {
+    text-align: left;
+    font-weight:  bold;
+    margin-bottom: 5px;
+}
+
+.postTitle {
+    padding: 7px;
+    margin: 0px 0px 30px 0px;
+    width: 400px;
+    font-size: 20px;
+    border: none;
+    box-shadow: 2px 2px 5px rgb(175, 173, 173);
+    border-radius: 5px;
+}
+
+.updateBtn {
+    width: 170px;
+    margin-top: 30px;
+    background: none;
+    border: 2px solid transparent;
+    transition: border 200ms ease-in-out;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.updateBtn:hover {
+    border: 2px solid white;
+}
+
+.createBtn {
+    width: 140px;
+    margin-top: 30px;
+    background: none;
+    border: 2px solid transparent;
+    transition: border 200ms ease-in-out;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.createBtn:hover {
+    border: 2px solid white;
+}
+
+/*  left off here... finish styling updatebtn: increase bottom
+padding, adjust btn width... then do the same for
+createBtn */

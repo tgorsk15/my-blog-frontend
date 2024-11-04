@@ -70,6 +70,7 @@ export const CreateBlog = () => {
                     <input 
                         type="text"
                         name="postName"
+                        className={blogStyles.postTitle}
                     />
 
                     <label htmlFor="postContent">Post Body:</label>
@@ -77,7 +78,9 @@ export const CreateBlog = () => {
                         contentRef= {contentRef}
                     />
 
-                    <button>Add Post</button>
+                    <button className={blogStyles.createBtn}>
+                        Add Post
+                    </button>
                 </form>
             </div>
         </section>
