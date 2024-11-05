@@ -205,3 +205,48 @@
     animation: prixClipFix 1s linear infinite ;
 }
 
+/* media screens */
+@media (max-width: 800px) {
+    .blogDashPage {
+        flex-direction: column;
+        margin-left: 40px;
+    }
+
+    .createNewContainer {
+        min-width: 400px;
+    }
+
+    .postTime {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .blogDashPage {
+        margin-left: 20px;
+    }
+
+    .postsSection {
+        padding-left: 0px;
+        min-width: 280px;
+    }
+
+    .postTitle {
+        font-size: 20px;
+    }
+
+    .postActions {
+        margin-left: 0px;
+    }
+
+    .postActions > button {
+        font-size: 15px;
+    }
+
+    .createNewContainer {
+        min-width: 200px;
+        height: 300px;
+    }
+
+}
+
