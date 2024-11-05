@@ -9,3 +9,7 @@ If you wish to download and use the code yourself, keep in mind there are some d
 
 A live version of the site can be found here:
 https://thedailycoder.netlify.app/
+
+
+Check out the backend API here!:
+https://github.com/tgorsk15/my-blog-backend
